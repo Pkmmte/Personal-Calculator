@@ -124,5 +124,5 @@ public class ActivityMain extends Activity
  * 
  * Pkmmte:
  * - (3/23) Create Manage activity to manage all plugins and themes.
- * - (3/23) Cleaned up code.
+ * - (3/23) Cleaned up code.jfghfghfghfghfghfghgfhfgh
  */
