@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,9 @@ import android.widget.TimePicker;
 public class ActivityMain extends Activity
 {
 	// For debugging purposes. Remember to set to false if released. (Even a public beta)
-	public final static Boolean DEBUG = false;
+	public final static Boolean DEBUG = true;
+
+	private SharedPreferences prefs;
 	
 	TimePicker timer;
 	CheckBox noTimer;
@@ -24,13 +28,15 @@ public class ActivityMain extends Activity
 	int Hours;
 	int Minutes;
 	
+	MenuItem mItemDebug;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		
+		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		
 		final TimePicker timer = (TimePicker) findViewById(R.id.timer);
 		timer.setIs24HourView(true);
@@ -91,8 +97,17 @@ public class ActivityMain extends Activity
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.action_menu, menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.action_menu, menu);
+		
+		this.mItemDebug = menu.findItem(R.id.action_debug);
+		
+		// If on debug mode, let us debug!
+		if(DEBUG)
+			mItemDebug.setVisible(true);
+		else
+			mItemDebug.setVisible(false);
+		
 		return true;
 	}
 	
@@ -108,6 +123,9 @@ public class ActivityMain extends Activity
 			case R.id.action_settings:
 				Intent settingsIntent = new Intent(ActivityMain.this, ActivitySettings.class);
 				startActivity(settingsIntent);
+				return true;
+			case R.id.action_debug:
+				startActivity(new Intent(ActivityMain.this, ActivityDebug.class));
 				return true;
 			default:
 

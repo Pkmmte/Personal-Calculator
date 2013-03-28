@@ -50,7 +50,7 @@ public class ActivityManage extends Activity
 		this.mItemSettings = menu.findItem(R.id.action_settings);
 		this.mItemDebug = menu.findItem(R.id.action_debug);
 		
-		// This manage activity doesn't need these two items shown...
+		// This activity doesn't need these two items shown...
 		mItemManage.setVisible(false);
 		mItemSettings.setVisible(false);
 		
@@ -79,8 +79,7 @@ public class ActivityManage extends Activity
 				}
 				return true;
 			case R.id.action_debug:
-				Intent debugIntent = new Intent(ActivityManage.this, ActivityDebug.class);
-				startActivity(debugIntent);
+				startActivity(new Intent(ActivityManage.this, ActivityDebug.class));
 			default:
 				return super.onOptionsItemSelected(item);
 		}

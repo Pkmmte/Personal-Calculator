@@ -2,6 +2,7 @@ package com.pk.personalcalculator;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.Button;
 
 public class ActivityCalculator extends Activity
 {
+
+	private SharedPreferences prefs;
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
 	Typeface robotoBoldCondensed;
@@ -37,6 +40,8 @@ public class ActivityCalculator extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculator);
+
+		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		
 		initializeUI();
 		lockdown();
@@ -64,6 +69,8 @@ public class ActivityCalculator extends Activity
 				Intent settingsIntent = new Intent(ActivityCalculator.this, ActivitySettings.class);
 				startActivity(settingsIntent);
 				return true;
+			case R.id.action_debug:
+				startActivity(new Intent(ActivityCalculator.this, ActivityDebug.class));
 			default:
 
 				return super.onOptionsItemSelected(item);
