@@ -55,7 +55,7 @@ public class ActivityManage extends Activity
 		mItemSettings.setVisible(false);
 		
 		// If on debug mode, let us debug!
-		if(ActivityMain.DEBUG)
+		if(ActivityMain.DebugMode)
 			mItemDebug.setVisible(true);
 		else
 			mItemDebug.setVisible(false);
