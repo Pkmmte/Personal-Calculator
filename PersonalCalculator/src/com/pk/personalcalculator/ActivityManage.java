@@ -24,6 +24,7 @@ public class ActivityManage extends Activity
 	
 	MenuItem mItemManage;
 	MenuItem mItemSettings;
+	MenuItem mItemDebug;
 	int onPage;
 	
 	@Override
@@ -47,17 +48,17 @@ public class ActivityManage extends Activity
 		
 		this.mItemManage = menu.findItem(R.id.action_manage);
 		this.mItemSettings = menu.findItem(R.id.action_settings);
+		this.mItemDebug = menu.findItem(R.id.action_debug);
 		
+		// This activity doesn't need these two items shown...
+		mItemManage.setVisible(false);
+		mItemSettings.setVisible(false);
 		
-		/*
-		if (!MySingleton.getInstance().getErrors()[0].equals("pcx_value"))
-			warningIcon.setVisible(true);
+		// If on debug mode, let us debug!
+		if(ActivityMain.DebugMode)
+			mItemDebug.setVisible(true);
 		else
-			warningIcon.setVisible(false);
-		if (DEBUG_MODE)
-			debugMenu.setVisible(true);
-		else
-			debugMenu.setVisible(false);*/
+			mItemDebug.setVisible(false);
 		
 		return true;
 	}
@@ -77,6 +78,8 @@ public class ActivityManage extends Activity
 					
 				}
 				return true;
+			case R.id.action_debug:
+				startActivity(new Intent(ActivityManage.this, ActivityDebug.class));
 			default:
 				return super.onOptionsItemSelected(item);
 		}
