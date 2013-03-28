@@ -11,9 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-
-public class ActivityCalculator extends Activity
-{
+import android.widget.EditText;
+public class ActivityCalculator extends Activity{
 	// For debugging purposes. Remember to set to false if released. (Even a public beta)
 	final static Boolean DebugMode = false;
 	
@@ -34,10 +33,12 @@ public class ActivityCalculator extends Activity
 	Button btn8;
 	Button btn9;
 	
+	//The EditText field
+	EditText text;
+	
 	// Called when activity starts
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculator);
 		
@@ -47,18 +48,15 @@ public class ActivityCalculator extends Activity
 	
 	// Create ActionBar menu options
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu){
 		getMenuInflater().inflate(R.menu.action_menu, menu);
 		return true;
 	}
 	
 	// Select what to do once ActionBar option is touched.
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
 			case R.id.action_manage:
 				Intent manageIntent = new Intent(ActivityCalculator.this, ActivityManage.class);
 				startActivity(manageIntent);
@@ -74,8 +72,7 @@ public class ActivityCalculator extends Activity
 	}
 	
 	// Initialize all UI objects and set theme if needed
-	public void initializeUI()
-	{
+	public void initializeUI(){
 		robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
 		robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
 		
@@ -90,6 +87,7 @@ public class ActivityCalculator extends Activity
 		btn7 = (Button) findViewById(R.id.btn7);
 		btn8 = (Button) findViewById(R.id.btn8);
 		btn9 = (Button) findViewById(R.id.btn9);
+		text = (EditText) findViewById(R.id.Input);
 		
 		btnClear.setTypeface(robotoBoldCondensed);
 		btn0.setTypeface(robotoThin);
@@ -102,11 +100,11 @@ public class ActivityCalculator extends Activity
 		btn7.setTypeface(robotoThin);
 		btn8.setTypeface(robotoThin);
 		btn9.setTypeface(robotoThin);
+		text.setTypeface(robotoThin);
 	}
 	
 	// Lock down the system
-	public void lockdown()
-	{
+	public void lockdown(){
 		View disableStatusBar = new View(ActivityCalculator.this);
 		
 		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, 50,
@@ -114,7 +112,7 @@ public class ActivityCalculator extends Activity
 		WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
 		// this is to keep button presses going to the background window
 		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-		// this is to enable the notification to recieve touch events
+		// this is to enable the notification to receive touch events
 		WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
 		// Draws over status bar
 		WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
@@ -122,4 +120,59 @@ public class ActivityCalculator extends Activity
 		handleParams.gravity = Gravity.TOP;
 		getWindow().addContentView(disableStatusBar, handleParams);
 	}
+	
+	//This method will determine what will happen when a button is pressed.
+	 public void buttonClickHandler(View v){
+	    	switch(v.getId()){
+	    		case R.id.btn0        : text.append("0");
+	    			break;
+	    		case R.id.btn1        : text.append("1");
+	    			break;
+	    		case R.id.btn2        : text.append("2");
+	    			break;
+	    		case R.id.btn3        : text.append("3");
+	    			break;
+	    		case R.id.btn4        : text.append("4");
+	    			break;
+	    		case R.id.btn5        : text.append("5");
+	    			break;
+	    		case R.id.btn6        : text.append("6");
+	    			break;
+	    		case R.id.btn7        : text.append("7");
+	    			break;
+	    		case R.id.btn8        : text.append("8");
+	    			break;
+	    		case R.id.btn9        : text.append("9");
+	    			break;
+	    		case R.id.btnPlus     :	text.append("+");
+	    			break;
+	    		case R.id.btnMinus    :	text.append("-");
+	    			break;
+	    		case R.id.btnMultiply :	text.append("*");
+	    			break;
+	    		case R.id.btnDivide   :	text.append("/");
+	    			break;
+	    		case R.id.btnLeftP    : text.append("(");
+	    			break;
+	    		case R.id.btnRightP   : text.append(")");
+	    			break;
+	    		case R.id.btnClear    : text.setText("");
+	    			break;
+	    		case R.id.btnEqual    : solve(); //Stub method; incomplete but skeletally functional.
+	    			break;
+	    		case R.id.btnSwitch   : //Code for the additive inverse of a number goes here.;
+	    			break;
+	    		case R.id.btnDot      : 
+	    			if (!text.getText().toString().contains(".")){
+	    				text.append("."); 
+	    			}
+	    			break;
+	    	}
+	 }
+	 
+	 //The method will take the text view "Input", analyze it, and construct an equation that the machine will solve;
+	 //The resulting solution will be set in the text view afterwards.
+	 public void solve(){
+		 //Code for solve goes here
+	 }
 }

@@ -11,12 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 /** DON'T FORGET TO MODIFY THE CHANGELOG AT THE END OF THIS FILE **/
 
-public class ActivityMain extends Activity
-{
+public class ActivityMain extends Activity{
 	TimePicker timer;
 	CheckBox noTimer;
 	Button Start;
@@ -25,8 +23,7 @@ public class ActivityMain extends Activity
 	int Minutes;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
@@ -37,11 +34,9 @@ public class ActivityMain extends Activity
 		Start = (Button) findViewById(R.id.start);
 		noTimer = (CheckBox) findViewById(R.id.noLock);
 		
-		Start.setOnClickListener(new View.OnClickListener()
-		{
+		Start.setOnClickListener(new View.OnClickListener(){
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v){
 				Hours = timer.getCurrentHour();
 				Minutes = timer.getCurrentMinute();
 				
@@ -60,19 +55,15 @@ public class ActivityMain extends Activity
 				
 				// set dialog message
 				alertDialogBuilder.setMessage(confirmMessage);
-				alertDialogBuilder.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int id)
-					{
+				alertDialogBuilder.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+					public void onClick(DialogInterface dialog, int id){
 						// if this button is clicked, close
 						// current activity
 						Intent intent = new Intent(ActivityMain.this, ActivityCalculator.class);
 						startActivity(intent);
 					}
-				}).setNegativeButton("No", new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int id)
-					{
+				}).setNegativeButton("No", new DialogInterface.OnClickListener(){
+					public void onClick(DialogInterface dialog, int id){
 						// if this button is clicked, just close
 						// the dialog box and do nothing
 						dialog.cancel();
@@ -89,18 +80,15 @@ public class ActivityMain extends Activity
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu){
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.action_menu, menu);
 		return true;
 	}
 	
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
 			case R.id.action_manage:
 				Intent manageIntent = new Intent(ActivityMain.this, ActivityManage.class);
 				startActivity(manageIntent);
@@ -120,9 +108,14 @@ public class ActivityMain extends Activity
 /* Add your changes here../
  * 
  * Jerry: 
- * 
+ * -(3/27) Added variable & instantiation for the EditText field "Input" (R.id.Input)
+ * -(3/27) Added void method buttonClickHandler, which expects a parameter V of type 'View'.
+ * -(3/27) Added a switch statement to the "buttonClickHandler" method, which will decide what will happen when a specific button is pressed.
+ * -(3/27) Added a method stub 'solve', which will take the characters in 'Input' and create an equation which the machine will solve.
+ * -(3/27) Some code clean up
+ * -MESSAGE: I created a text file called "CHANGELOG" if you want the changes to be recorded there instead.
  * 
  * Pkmmte:
- * - (3/23) Create Manage activity to manage all plugins and themes.
+ * - (3/23) Create Manage activity to manage all plug-ins and themes.
  * - (3/23) Cleaned up code.
  */
