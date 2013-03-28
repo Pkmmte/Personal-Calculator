@@ -11,9 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
-/** DON'T FORGET TO MODIFY THE CHANGELOG AT THE END OF THIS FILE **/
 
 public class ActivityMain extends Activity
 {
@@ -115,14 +112,3 @@ public class ActivityMain extends Activity
 		}
 	}
 }
-
-/******* CHANGELOG *******/
-/* Add your changes here../
- * 
- * Jerry: 
- * 
- * 
- * Pkmmte:
- * - (3/23) Create Manage activity to manage all plugins and themes.
- * - (3/23) Cleaned up code.jfghfghfghfghfghfghgfhfgh
- */
