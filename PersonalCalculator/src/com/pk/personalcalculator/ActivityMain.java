@@ -116,6 +116,6 @@ public class ActivityMain extends Activity{
  * -MESSAGE: I created a text file called "CHANGELOG" if you want the changes to be recorded there instead.
  * 
  * Pkmmte:
- * - (3/23) Create Manage activity to manage all plug-ins and themes.
- * - (3/23) Cleaned up code.
+ * - (3/23) Create Manage activity to manage all plugins and themes.
+ * - (3/23) Cleaned up code.jfghfghfghfghfghfghgfhfgh
  */
