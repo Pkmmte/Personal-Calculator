@@ -14,9 +14,6 @@ import android.widget.Button;
 
 public class ActivityCalculator extends Activity
 {
-	// For debugging purposes. Remember to set to false if released. (Even a public beta)
-	final static Boolean DebugMode = false;
-	
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
 	Typeface robotoBoldCondensed;

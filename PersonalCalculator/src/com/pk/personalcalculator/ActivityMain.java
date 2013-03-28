@@ -14,6 +14,9 @@ import android.widget.TimePicker;
 
 public class ActivityMain extends Activity
 {
+	// For debugging purposes. Remember to set to false if released. (Even a public beta)
+	public final static Boolean DEBUG = false;
+	
 	TimePicker timer;
 	CheckBox noTimer;
 	Button Start;
