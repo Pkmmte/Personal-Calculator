@@ -13,8 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TimePicker;
 
-/** DON'T FORGET TO MODIFY THE CHANGELOG AT THE END OF THIS FILE **/
-
 public class ActivityMain extends Activity
 {
 	// For debugging purposes. Remember to set to false if released. (Even a
@@ -126,23 +124,3 @@ public class ActivityMain extends Activity
 		}
 	}
 }
-
-/******* CHANGELOG *******/
-/*
- * Add your changes here../
- * 
- * Jerry: -(3/27) Added variable & instantiation for the EditText field "Input"
- * (R.id.Input) -(3/27) Added void method buttonClickHandler, which expects a
- * parameter V of type 'View'. -(3/27) Added a switch statement to the
- * "buttonClickHandler" method, which will decide what will happen when a
- * specific button is pressed. -(3/27) Added a method stub 'solve', which will
- * take the characters in 'Input' and create an equation which the machine will
- * solve. -(3/27) Some code clean up -MESSAGE: I created a text file called
- * "CHANGELOG" if you want the changes to be recorded there instead.
- * 
- * Pkmmte: - (3/23) Create Manage activity to manage all plugins and themes. -
- * (3/23) Cleaned up code.
- * 
- * - Perhaps we should stop usng this changelog in favor of commit comments on
- * GitHub.
- */

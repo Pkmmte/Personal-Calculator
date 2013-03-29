@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,15 +20,15 @@ public class ActivityManage extends Activity
 	ActionBar actionBar;
 	private SharedPreferences prefs;
 	
-	Fragment fragList;
-	Fragment fragItem;
+	static Fragment fragList;
+	static Fragment fragItem;
 	static FragmentManager fm;
 	static FragmentTransaction transaction;
 	
 	MenuItem mItemManage;
 	MenuItem mItemSettings;
 	MenuItem mItemDebug;
-	int onPage;
+	static int onPage;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -40,7 +41,7 @@ public class ActivityManage extends Activity
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		onPage = 1;
 		
-		fragList = new FragmentManageChoices();
+		fragList = new FragmentManageList();
 		fm = getFragmentManager();
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.Frame, fragList);
@@ -91,5 +92,15 @@ public class ActivityManage extends Activity
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	public static void switchFragment(String Data, Context context)
+	{
+		onPage++;
+		fragItem = FragmentManageItem.newInstance(Data);
+		transaction = fm.beginTransaction();
+		//transaction.setCustomAnimations(R.anim.in_from_right, R.anim.out_to_left, R.anim.in_from_left, R.anim.out_to_right);
+		transaction.replace(R.id.Frame, fragItem);
+		transaction.commit();
 	}
 }
