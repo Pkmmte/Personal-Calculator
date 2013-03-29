@@ -47,7 +47,7 @@ public class ActivityCalculator extends Activity
 		setContentView(R.layout.activity_calculator);
 		
 		initializeUI();
-		lockdown();
+		//lockdown();
 	}
 	
 	// Create ActionBar menu options
