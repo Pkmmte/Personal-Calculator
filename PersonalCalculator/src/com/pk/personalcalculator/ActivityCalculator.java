@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -128,7 +129,7 @@ public class ActivityCalculator extends Activity
 	{
 		View disableStatusBar = new View(ActivityCalculator.this);
 		
-		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, 50,
+		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50,
 		// This allows the view to be displayed over the status bar
 		WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
 		// this is to keep button presses going to the background window

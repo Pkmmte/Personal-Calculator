@@ -24,21 +24,25 @@ public class SettingsAdapter extends BaseAdapter implements OnClickListener
 		this.listItem = listItem;
 	}
 
+	@Override
 	public int getCount()
 	{
 		return listItem.size();
 	}
 
+	@Override
 	public Object getItem(int position)
 	{
 		return listItem.get(position);
 	}
 
+	@Override
 	public long getItemId(int position)
 	{
 		return position;
 	}
 
+	@Override
 	public View getView(int position, View view, ViewGroup viewGroup)
 	{
 		SettingsItem entry = listItem.get(position);

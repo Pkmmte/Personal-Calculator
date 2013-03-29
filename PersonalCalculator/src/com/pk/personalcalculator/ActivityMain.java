@@ -9,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TimePicker;
 
 /** DON'T FORGET TO MODIFY THE CHANGELOG AT THE END OF THIS FILE **/
@@ -20,9 +20,6 @@ public class ActivityMain extends Activity
 	// For debugging purposes. Remember to set to false if released. (Even a
 	// public beta)
 	final static Boolean DebugMode = true;
-	TimePicker timer;
-	CheckBox noTimer;
-	Button Start;
 	
 	int Hours;
 	int Minutes;
@@ -34,12 +31,11 @@ public class ActivityMain extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		final TimePicker timer = (TimePicker) findViewById(R.id.timer);
+		final TimePicker timer = (TimePicker)findViewById(R.id.timer);
 		timer.setIs24HourView(true);
-		Start = (Button) findViewById(R.id.start);
-		noTimer = (CheckBox) findViewById(R.id.noLock);
+		final Button start = (Button)findViewById(R.id.start); // This is somehow assigned as NULL.
 		
-		Start.setOnClickListener(new View.OnClickListener()
+		start.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
@@ -64,6 +60,7 @@ public class ActivityMain extends Activity
 				alertDialogBuilder.setMessage(confirmMessage);
 				alertDialogBuilder.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener()
 				{
+					@Override
 					public void onClick(DialogInterface dialog, int id)
 					{
 						// if this button is clicked, close
@@ -73,6 +70,7 @@ public class ActivityMain extends Activity
 					}
 				}).setNegativeButton("No", new DialogInterface.OnClickListener()
 				{
+					@Override
 					public void onClick(DialogInterface dialog, int id)
 					{
 						// if this button is clicked, just close

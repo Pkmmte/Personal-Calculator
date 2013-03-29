@@ -41,22 +41,22 @@ public final class R {
         public static final int settings=0x7f020009;
     }
     public static final class id {
-        public static final int Advanced=0x7f090026;
-        public static final int CheckText=0x7f090022;
-        public static final int Description=0x7f09001f;
-        public static final int EXP_COL=0x7f090027;
-        public static final int Frame=0x7f09001b;
-        public static final int Image=0x7f09001e;
+        public static final int Advanced=0x7f090025;
+        public static final int CheckText=0x7f090021;
+        public static final int Description=0x7f09001e;
+        public static final int EXP_COL=0x7f090026;
+        public static final int Frame=0x7f09001a;
+        public static final int Image=0x7f09001d;
         public static final int Input=0x7f090000;
-        public static final int ListView=0x7f09001c;
-        public static final int Name=0x7f090023;
-        public static final int NameDes=0x7f090021;
-        public static final int Setting=0x7f090020;
-        public static final int Text=0x7f090029;
-        public static final int Title=0x7f09001d;
-        public static final int action_debug=0x7f09002c;
-        public static final int action_manage=0x7f09002a;
-        public static final int action_settings=0x7f09002b;
+        public static final int ListView=0x7f09001b;
+        public static final int Name=0x7f090022;
+        public static final int NameDes=0x7f090020;
+        public static final int Setting=0x7f09001f;
+        public static final int Text=0x7f090028;
+        public static final int Title=0x7f09001c;
+        public static final int action_debug=0x7f09002b;
+        public static final int action_manage=0x7f090029;
+        public static final int action_settings=0x7f09002a;
         public static final int btn0=0x7f090013;
         public static final int btn1=0x7f09000f;
         public static final int btn2=0x7f090010;
@@ -79,13 +79,12 @@ public final class R {
         public static final int btnPlus=0x7f090012;
         public static final int btnRightP=0x7f090005;
         public static final int btnSwitch=0x7f090015;
-        public static final int checkBox=0x7f090024;
-        public static final int noLock=0x7f090019;
-        public static final int start=0x7f09001a;
-        public static final int textValue=0x7f090025;
+        public static final int checkBox=0x7f090023;
+        public static final int start=0x7f090019;
+        public static final int textValue=0x7f090024;
         public static final int textView1=0x7f090017;
         public static final int timer=0x7f090018;
-        public static final int view=0x7f090028;
+        public static final int view=0x7f090027;
     }
     public static final class layout {
         public static final int activity_calculator=0x7f030000;
