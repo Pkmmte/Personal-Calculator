@@ -14,6 +14,7 @@ public final class R {
         public static final int cyan=0x7f040000;
         public static final int cyan2=0x7f040001;
         public static final int cyan3=0x7f040002;
+        public static final int divider=0x7f040004;
         public static final int white=0x7f040003;
     }
     public static final class dimen {
@@ -28,15 +29,16 @@ public final class R {
         public static final int btnSize=0x7f050002;
     }
     public static final class drawable {
-        public static final int checkbox_off=0x7f020000;
-        public static final int checkbox_on=0x7f020001;
-        public static final int collapse=0x7f020002;
-        public static final int expand=0x7f020003;
-        public static final int expander=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int item_selector=0x7f020006;
-        public static final int setting=0x7f020007;
-        public static final int settings=0x7f020008;
+        public static final int border_selector=0x7f020000;
+        public static final int checkbox_off=0x7f020001;
+        public static final int checkbox_on=0x7f020002;
+        public static final int collapse=0x7f020003;
+        public static final int expand=0x7f020004;
+        public static final int expander=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int item_selector=0x7f020007;
+        public static final int setting=0x7f020008;
+        public static final int settings=0x7f020009;
     }
     public static final class id {
         public static final int Advanced=0x7f090026;
@@ -112,7 +114,12 @@ public final class R {
         public static final int btn7=0x7f06000c;
         public static final int btn8=0x7f06000d;
         public static final int btn9=0x7f06000e;
+        public static final int graphing_description=0x7f060013;
         public static final int hello_world=0x7f060002;
+        public static final int lockdown_description=0x7f060010;
+        public static final int popup_description=0x7f060012;
+        public static final int themes_description=0x7f06000f;
+        public static final int widget_description=0x7f060011;
     }
     public static final class style {
         /** 

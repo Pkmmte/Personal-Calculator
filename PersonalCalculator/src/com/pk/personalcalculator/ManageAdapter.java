@@ -3,13 +3,13 @@ package com.pk.personalcalculator;
 import java.util.List;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ManageAdapter extends BaseAdapter implements OnClickListener
@@ -48,6 +48,8 @@ public class ManageAdapter extends BaseAdapter implements OnClickListener
 			view = inflater.inflate(R.layout.manage_item, null);
 		}
 		
+		Resources res = context.getResources();
+		
 		// Types
 		TextView Title = (TextView) view.findViewById(R.id.Title);
 		ImageView Image = (ImageView) view.findViewById(R.id.Image);
@@ -55,6 +57,16 @@ public class ManageAdapter extends BaseAdapter implements OnClickListener
 		
 		Title.setText(entry);
 		
+		if(entry.equals("Themes"))
+			Description.setText(res.getString(R.string.themes_description));
+		else if(entry.equals("Lockdown"))
+			Description.setText(res.getString(R.string.lockdown_description));
+		else if(entry.equals("Widget"))
+			Description.setText(res.getString(R.string.widget_description));
+		else if(entry.equals("Pop Up"))
+			Description.setText(res.getString(R.string.popup_description));
+		else if(entry.equals("Graphing"))
+			Description.setText(res.getString(R.string.graphing_description));
 		
 		return view;
 	}

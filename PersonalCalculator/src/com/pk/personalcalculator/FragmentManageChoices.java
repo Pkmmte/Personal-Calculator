@@ -27,12 +27,15 @@ public class FragmentManageChoices extends Fragment
 		list = (ListView) view.findViewById(R.id.ListView);
 		
 		listOfItems = new ArrayList<String>();
-		listOfItems.add("Item Uno");
-		listOfItems.add("Item Deux");
-		listOfItems.add("Item Tres");
+		listOfItems.add("Themes");
+		listOfItems.add("Lockdown");
+		listOfItems.add("Widget");
+		listOfItems.add("Pop Up");
+		listOfItems.add("Graphing");
 		
 		adapter = new ManageAdapter(getActivity().getBaseContext(), listOfItems);
 		
+		list.setDividerHeight(0);
 		list.setAdapter(adapter);
 		
 		return view;
