@@ -2,15 +2,17 @@ package com.pk.personalcalculator;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+
 
 public class ActivityManage extends Activity
 {
@@ -19,8 +21,8 @@ public class ActivityManage extends Activity
 	
 	Fragment fragList;
 	Fragment fragItem;
-	FragmentManager fm;
-	FragmentTransaction transaction;
+	static FragmentManager fm;
+	static FragmentTransaction transaction;
 	
 	MenuItem mItemManage;
 	MenuItem mItemSettings;
@@ -37,6 +39,12 @@ public class ActivityManage extends Activity
 		actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		onPage = 1;
+		
+		fragList = new FragmentManageChoices();
+		fm = getFragmentManager();
+		transaction = fm.beginTransaction();
+		transaction.replace(R.id.Frame, fragList);
+		transaction.commit();
 	}
 	
 	// Create ActionBar menu options

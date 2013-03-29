@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Lockdown Calculator</string>
+    <string name="app_name">Personal Calculator</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="PlaceHolder_VALUE">Value</string>
@@ -16,5 +16,10 @@
     <string name="btn7">7</string>
     <string name="btn8">8</string>
     <string name="btn9">9</string>
+    <string name="themes_description">Customize the looks to your liking. More themes will be available in the future.</string>
+    <string name="lockdown_description">Disable your phone\'s system while performing calculations. We don\'t want you getting distracted.</string>
+    <string name="widget_description">Be able to do your calculations from within your homescreen or lockscreen with this simple widget!</string>
+    <string name="popup_description">Multitask with a pop up version of the application. It is resizable and allows you to open multiple sessions.</string>
+    <string name="graphing_description">Unleash the power of graphing with this plugin! Advanced math has never been easier. </string>
 
 </resources>

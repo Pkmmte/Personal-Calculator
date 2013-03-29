@@ -14,6 +14,8 @@ public final class R {
         public static final int cyan=0x7f040000;
         public static final int cyan2=0x7f040001;
         public static final int cyan3=0x7f040002;
+        public static final int divider=0x7f040004;
+        public static final int white=0x7f040003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -27,30 +29,34 @@ public final class R {
         public static final int btnSize=0x7f050002;
     }
     public static final class drawable {
-        public static final int checkbox_off=0x7f020000;
-        public static final int checkbox_on=0x7f020001;
-        public static final int collapse=0x7f020002;
-        public static final int expand=0x7f020003;
-        public static final int expander=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int item_selector=0x7f020006;
-        public static final int setting=0x7f020007;
-        public static final int settings=0x7f020008;
+        public static final int border_selector=0x7f020000;
+        public static final int checkbox_off=0x7f020001;
+        public static final int checkbox_on=0x7f020002;
+        public static final int collapse=0x7f020003;
+        public static final int expand=0x7f020004;
+        public static final int expander=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int item_selector=0x7f020007;
+        public static final int setting=0x7f020008;
+        public static final int settings=0x7f020009;
     }
     public static final class id {
-        public static final int Advanced=0x7f090023;
-        public static final int CheckText=0x7f09001e;
-        public static final int Description=0x7f090020;
-        public static final int EXP_COL=0x7f090024;
+        public static final int Advanced=0x7f090026;
+        public static final int CheckText=0x7f090022;
+        public static final int Description=0x7f09001f;
+        public static final int EXP_COL=0x7f090027;
         public static final int Frame=0x7f09001b;
+        public static final int Image=0x7f09001e;
         public static final int Input=0x7f090000;
-        public static final int Name=0x7f09001f;
-        public static final int NameDes=0x7f09001d;
-        public static final int Setting=0x7f09001c;
-        public static final int Text=0x7f090026;
-        public static final int action_debug=0x7f090029;
-        public static final int action_manage=0x7f090027;
-        public static final int action_settings=0x7f090028;
+        public static final int ListView=0x7f09001c;
+        public static final int Name=0x7f090023;
+        public static final int NameDes=0x7f090021;
+        public static final int Setting=0x7f090020;
+        public static final int Text=0x7f090029;
+        public static final int Title=0x7f09001d;
+        public static final int action_debug=0x7f09002c;
+        public static final int action_manage=0x7f09002a;
+        public static final int action_settings=0x7f09002b;
         public static final int btn0=0x7f090013;
         public static final int btn1=0x7f09000f;
         public static final int btn2=0x7f090010;
@@ -73,20 +79,22 @@ public final class R {
         public static final int btnPlus=0x7f090012;
         public static final int btnRightP=0x7f090005;
         public static final int btnSwitch=0x7f090015;
-        public static final int checkBox=0x7f090021;
+        public static final int checkBox=0x7f090024;
         public static final int noLock=0x7f090019;
         public static final int start=0x7f09001a;
-        public static final int textValue=0x7f090022;
+        public static final int textValue=0x7f090025;
         public static final int textView1=0x7f090017;
         public static final int timer=0x7f090018;
-        public static final int view=0x7f090025;
+        public static final int view=0x7f090028;
     }
     public static final class layout {
         public static final int activity_calculator=0x7f030000;
         public static final int activity_debug=0x7f030001;
         public static final int activity_main=0x7f030002;
         public static final int activity_manage=0x7f030003;
-        public static final int settings_item=0x7f030004;
+        public static final int fragment_managelist=0x7f030004;
+        public static final int manage_item=0x7f030005;
+        public static final int settings_item=0x7f030006;
     }
     public static final class menu {
         public static final int action_menu=0x7f080000;
@@ -106,7 +114,12 @@ public final class R {
         public static final int btn7=0x7f06000c;
         public static final int btn8=0x7f06000d;
         public static final int btn9=0x7f06000e;
+        public static final int graphing_description=0x7f060013;
         public static final int hello_world=0x7f060002;
+        public static final int lockdown_description=0x7f060010;
+        public static final int popup_description=0x7f060012;
+        public static final int themes_description=0x7f06000f;
+        public static final int widget_description=0x7f060011;
     }
     public static final class style {
         /** 
