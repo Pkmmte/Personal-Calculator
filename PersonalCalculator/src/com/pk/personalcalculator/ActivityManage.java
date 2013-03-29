@@ -1,21 +1,20 @@
 package com.pk.personalcalculator;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-
-
-public class ActivityManage extends Activity
+public class ActivityManage extends FragmentActivity
 {
 	ActionBar actionBar;
 	private SharedPreferences prefs;
@@ -42,7 +41,7 @@ public class ActivityManage extends Activity
 		onPage = 1;
 		
 		fragList = new FragmentManageList();
-		fm = getFragmentManager();
+		fm = getSupportFragmentManager();
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.Frame, fragList);
 		transaction.commit();
@@ -64,7 +63,7 @@ public class ActivityManage extends Activity
 		mItemSettings.setVisible(false);
 		
 		// If on debug mode, let us debug!
-		if(ActivityMain.DebugMode)
+		if (ActivityMain.DebugMode)
 			mItemDebug.setVisible(true);
 		else
 			mItemDebug.setVisible(false);
@@ -79,12 +78,15 @@ public class ActivityManage extends Activity
 		switch (item.getItemId())
 		{
 			case android.R.id.home:
-				if(onPage == 1)
+				if (onPage == 1)
 					finish();
 				else
 				{
 					onPage = 1;
-					
+					transaction = fm.beginTransaction();
+					transaction.setCustomAnimations(R.anim.in_from_left, R.anim.out_to_right, R.anim.in_from_right, R.anim.out_to_left);
+					transaction.replace(R.id.Frame, fragList);
+					transaction.commit();
 				}
 				return true;
 			case R.id.action_debug:
@@ -94,12 +96,32 @@ public class ActivityManage extends Activity
 		}
 	}
 	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
+			if (onPage == 1)
+				finish();
+			else
+			{
+				onPage = 1;
+				transaction = fm.beginTransaction();
+				transaction.setCustomAnimations(R.anim.in_from_left, R.anim.out_to_right, R.anim.in_from_right, R.anim.out_to_left);
+				transaction.replace(R.id.Frame, fragList);
+				transaction.commit();
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
 	public static void switchFragment(String Data, Context context)
 	{
 		onPage++;
 		fragItem = FragmentManageItem.newInstance(Data);
 		transaction = fm.beginTransaction();
-		//transaction.setCustomAnimations(R.anim.in_from_right, R.anim.out_to_left, R.anim.in_from_left, R.anim.out_to_right);
+		transaction.setCustomAnimations(R.anim.in_from_right, R.anim.out_to_left, R.anim.in_from_left, R.anim.out_to_right);
 		transaction.replace(R.id.Frame, fragItem);
 		transaction.commit();
 	}
