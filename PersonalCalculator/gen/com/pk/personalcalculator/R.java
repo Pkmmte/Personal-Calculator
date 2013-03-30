@@ -115,6 +115,7 @@ public final class R {
         public static final int action_menu=0x7f090000;
     }
     public static final class string {
+        public static final int LOCKDOWN_Intro=0x7f070015;
         public static final int MANAGE_Description=0x7f070014;
         public static final int PlaceHolder_VALUE=0x7f070003;
         public static final int SETTINGS_Advanced=0x7f070004;
@@ -134,6 +135,7 @@ public final class R {
         public static final int hello_world=0x7f070002;
         public static final int lockdown_description=0x7f070010;
         public static final int popup_description=0x7f070012;
+        public static final int start=0x7f070016;
         public static final int themes_description=0x7f07000f;
         public static final int widget_description=0x7f070011;
     }

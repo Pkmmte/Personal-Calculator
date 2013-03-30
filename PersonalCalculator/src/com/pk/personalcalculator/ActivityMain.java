@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,7 +20,8 @@ public class ActivityMain extends Activity
 	// For debugging purposes. Remember to set to false if released. (Even a
 	// public beta)
 	final static Boolean DebugMode = true;
-	
+
+	private SharedPreferences prefs;
 	int Hours;
 	int Minutes;
 
@@ -28,10 +31,15 @@ public class ActivityMain extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
+		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		final TimePicker timer = (TimePicker)findViewById(R.id.timer);
 		timer.setIs24HourView(true);
 		final Button start = (Button)findViewById(R.id.start); // This is somehow assigned as NULL.
+		
+		boolean firstTime = prefs.getBoolean("First Time", true);
+		if(firstTime)
+			showIntroduction();
 		
 		start.setOnClickListener(new OnClickListener()
 		{
@@ -41,9 +49,13 @@ public class ActivityMain extends Activity
 				Hours = timer.getCurrentHour();
 				Minutes = timer.getCurrentMinute();
 				
-				String youCrazy = " (That's a long time..)";
-				String areYouHigh = " (That's a VERY long time!)";
-				String confirmMessage = "Are you sure you wish to lock down your phone for " + Hours + " hours and " + Minutes + " minutes?";
+				String confirmMessage;
+				String youCrazy = "\n(That's a long time..)";
+				String areYouHigh = "\n(That's a VERY long time!)";
+				if(Hours > 0)
+					confirmMessage = "Are you sure you wish to lock down your phone for " + Hours + " hours and " + Minutes + " minutes?";
+				else
+					confirmMessage = "Are you sure you wish to lock down your phone for " + Minutes + " minutes?";
 				if (Hours > 12)
 					confirmMessage += areYouHigh;
 				else if (Hours > 5)
@@ -122,5 +134,39 @@ public class ActivityMain extends Activity
 				
 				return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	public void showIntroduction()
+	{
+		setDefaults();
+	}
+	
+	public void showLockdown()
+	{
+		
+	}
+	
+	public void setDefaults()
+	{
+		Editor editor = prefs.edit();
+		
+		// This is no longer the first time
+		editor.putBoolean("First Time", false);
+		
+		// Set purchased values. Some are free and some are paid.
+		editor.putBoolean("Purchased_Themes", true);
+		editor.putBoolean("Purchased_Lockdown", true);
+		editor.putBoolean("Purchased_Widget", false);
+		editor.putBoolean("Purchased_Pop Up", false);
+		
+		// Set activated defaults. Lockdown is deactivated by default.
+		editor.putBoolean("Activated_Themes", true);
+		editor.putBoolean("Activated_Lockdown", false);
+		editor.putBoolean("Activated_Widget", true);
+		editor.putBoolean("Activated_Pop Up", true);
+		
+		// Settings
+		
+		editor.commit();
 	}
 }

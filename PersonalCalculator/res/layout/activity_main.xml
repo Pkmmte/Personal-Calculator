@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Select the amount of time for which you wish to lockdown your phone during calculator use. \n\nUse hours and minutes respectively." />
+        android:layout_margin="7dp"
+        android:text="@string/LOCKDOWN_Intro" />
 
     <TimePicker
         android:id="@+id/timer"
@@ -28,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:background="@drawable/button_blue_selector"
-        android:text="Start"
+        android:text="@string/start"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />
 

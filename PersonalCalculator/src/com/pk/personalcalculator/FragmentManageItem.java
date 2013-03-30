@@ -20,6 +20,9 @@ public class FragmentManageItem extends Fragment
 	TextView textDescription;
 	Button btnToggle;
 	
+	boolean activated;
+	boolean purchased;
+	
 	public static final FragmentManageItem newInstance(String title)
 	{
 		FragmentManageItem f = new FragmentManageItem();
@@ -38,8 +41,8 @@ public class FragmentManageItem extends Fragment
 		prefs = getActivity().getSharedPreferences("PersonalCalculatorPreferences", 0);
 		final String title = getArguments().getString("Title");
 		
-		boolean activated = prefs.getBoolean("Activated_" + title, false);
-		boolean purchased = prefs.getBoolean("Purchased_" + title, false);
+		activated = prefs.getBoolean("Activated_" + title, false);
+		purchased = prefs.getBoolean("Purchased_" + title, false);
 		
 		imagePreview = (ImageView) view.findViewById(R.id.Image);
 		textTitle = (TextView) view.findViewById(R.id.Title);
@@ -72,9 +75,10 @@ public class FragmentManageItem extends Fragment
 					@Override
 					public void onClick(View v)
 					{
+						activated = false;
 						btnToggle.setText("Activate");
 						Editor editor = prefs.edit();
-						editor.putBoolean("Activated_" + title, false);
+						editor.putBoolean("Activated_" + title, activated);
 						editor.commit();
 					}
 				});
@@ -87,9 +91,10 @@ public class FragmentManageItem extends Fragment
 					@Override
 					public void onClick(View v)
 					{
+						activated = true;
 						btnToggle.setText("Deactivate");
 						Editor editor = prefs.edit();
-						editor.putBoolean("Activated_" + title, true);
+						editor.putBoolean("Activated_" + title, activated);
 						editor.commit();
 					}
 				});
