@@ -35,5 +35,9 @@
     <string name="plugin_description">Various plugins are available for you to use. These include widgets, lockdown, popup calculator, graphing, and themes.</string>
     <string name="settings_description">You are in control of what is enabled or disabled. This is your personal calculator, afterwall. Change it to your liking.</string>
     <string name="intro_finish">FINISH</string>
+    <string name="debug_cleardata">Clear Data</string>
+    <string name="debug_forcestop">Force Stop</string>
+    <string name="debug_reset">Reset</string>
+    <string name="debug_values">Variable Values</string>
 
 </resources>
