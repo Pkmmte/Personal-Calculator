@@ -95,9 +95,6 @@ public class ActivityMain extends FragmentActivity
 				return super.onOptionsItemSelected(item);
 		}
 	}
-<<<<<<< HEAD
-}
-=======
 	
 	public void showIntroduction()
 	{
@@ -172,4 +169,3 @@ public class ActivityMain extends FragmentActivity
 		editor.commit();
 	}
 }
->>>>>>> bb3ad78707d46b174140511dd5e420302073ed4c
