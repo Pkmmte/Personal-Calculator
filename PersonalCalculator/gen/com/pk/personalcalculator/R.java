@@ -63,16 +63,16 @@ public final class R {
     public static final class id {
         public static final int Advanced=0x7f0a003b;
         public static final int CheckText=0x7f0a0037;
-        public static final int Description=0x7f0a0032;
+        public static final int Description=0x7f0a0033;
         public static final int EXP_COL=0x7f0a003c;
         public static final int Frame=0x7f0a0019;
-        public static final int Image=0x7f0a0034;
+        public static final int Image=0x7f0a0031;
         public static final int Input=0x7f0a0000;
         public static final int Intro1=0x7f0a001a;
         public static final int Intro2=0x7f0a001e;
         public static final int Intro3=0x7f0a0023;
         public static final int Intro4=0x7f0a0028;
-        public static final int ListView=0x7f0a0033;
+        public static final int ListView=0x7f0a0034;
         public static final int Name=0x7f0a0038;
         public static final int NameDes=0x7f0a0036;
         public static final int NavBar1=0x7f0a001d;
@@ -81,7 +81,7 @@ public final class R {
         public static final int NavBar4=0x7f0a002a;
         public static final int Setting=0x7f0a0035;
         public static final int Text=0x7f0a003e;
-        public static final int Title=0x7f0a0031;
+        public static final int Title=0x7f0a0032;
         public static final int Toggle=0x7f0a002f;
         public static final int action_debug=0x7f0a0041;
         public static final int action_manage=0x7f0a003f;
@@ -97,11 +97,11 @@ public final class R {
         public static final int btn8=0x7f0a0008;
         public static final int btn9=0x7f0a0009;
         public static final int btnClear=0x7f0a0003;
-        public static final int btnDelete=0x7f0a0002;
+        public static final int btnDelete=0x7f0a0001;
         public static final int btnDivide=0x7f0a0006;
         public static final int btnDot=0x7f0a0014;
         public static final int btnEqual=0x7f0a0016;
-        public static final int btnExpand=0x7f0a0001;
+        public static final int btnExpand=0x7f0a0002;
         public static final int btnLeftP=0x7f0a0004;
         public static final int btnMinus=0x7f0a000e;
         public static final int btnMultiply=0x7f0a000a;

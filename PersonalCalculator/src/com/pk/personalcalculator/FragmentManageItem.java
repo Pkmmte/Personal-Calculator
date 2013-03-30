@@ -22,11 +22,12 @@ public class FragmentManageItem extends Fragment
 	
 	ImageView imagePreview;
 	TextView textTitle;
-	TextView textDescription;
+	static TextView textDescription;
 	Button btnToggle;
 	
 	boolean activated;
 	boolean purchased;
+	static int themePosition;
 	
 	PagerContainer mContainer;
 	
@@ -51,13 +52,21 @@ public class FragmentManageItem extends Fragment
 		
 		activated = prefs.getBoolean("Activated_" + title, false);
 		purchased = prefs.getBoolean("Purchased_" + title, false);
+		themePosition = 0;
 		
+		mContainer = (PagerContainer) view.findViewById(R.id.pager_container);
 		imagePreview = (ImageView) view.findViewById(R.id.Image);
 		textTitle = (TextView) view.findViewById(R.id.Title);
 		textDescription = (TextView) view.findViewById(R.id.Description);
 		btnToggle = (Button) view.findViewById(R.id.Toggle);
 		
 		textTitle.setText(title);
+		
+		if (title.equals("Themes"))
+		{
+			imagePreview.setVisibility(View.GONE);
+			mContainer.setVisibility(View.VISIBLE);
+		}
 		
 		if (!purchased)
 		{
@@ -102,23 +111,27 @@ public class FragmentManageItem extends Fragment
 			}
 		});
 		
-		mContainer = (PagerContainer) view.findViewById(R.id.pager_container);
-		 
-        ViewPager pager = mContainer.getViewPager();
-        pager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        PagerAdapter adapter = new MyPagerAdapter();
-        pager.setAdapter(adapter);
-        //Necessary or the pager will only have one extra page to show
-        // make this at least however many pages you can see
-        pager.setOffscreenPageLimit(adapter.getCount());
-        //A little space between pages
-        pager.setPageMargin(15);
- 
-        //If hardware acceleration is enabled, you should also remove
-        // clipping on the pager for its children.
-        pager.setClipChildren(false);
+		ViewPager pager = mContainer.getViewPager();
+		pager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+		PagerAdapter adapter = new MyPagerAdapter();
+		pager.setAdapter(adapter);
+		//Necessary or the pager will only have one extra page to show
+		// make this at least however many pages you can see
+		pager.setOffscreenPageLimit(adapter.getCount());
+		//A little space between pages
+		pager.setPageMargin(15);
+		
+		//If hardware acceleration is enabled, you should also remove
+		// clipping on the pager for its children.
+		pager.setClipChildren(false);
 		
 		return view;
+	}
+	
+	public static void onViewPagerChange(int position)
+	{
+		themePosition = position;
+		textDescription.setText("Item " + position);
 	}
 	
 	private class MyPagerAdapter extends PagerAdapter
