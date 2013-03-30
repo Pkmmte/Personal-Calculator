@@ -16,11 +16,23 @@
             android:id="@+id/Input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
+            android:gravity="right|center_vertical"
             android:inputType="numberDecimal"
             android:text=""
-            android:textSize="@dimen/text_view"
-            android:gravity="right|center_vertical" />
+            android:textSize="@dimen/text_view" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="@drawable/item_selector"
+            android:onClick="buttonClick"
+            android:text="DEL" />
 
     </RelativeLayout>
 
@@ -31,27 +43,11 @@
         android:background="@color/white"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnExpand"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/btnExpand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="7"
-                android:text="v" />
-
-            <Button
-                android:id="@+id/btnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/item_selector"
-                android:text="DEL" 
-                android:onClick="buttonClick" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="v" />
 
         <LinearLayout
             android:layout_width="match_parent"

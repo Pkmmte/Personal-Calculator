@@ -1,7 +1,6 @@
 package com.pk.personalcalculator;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
@@ -18,8 +17,6 @@ import android.widget.TextView;
 
 public class ActivityCalculator extends Activity
 {
-	//	A context for special purposes
-	Context thisContext;
 	
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
@@ -50,7 +47,6 @@ public class ActivityCalculator extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		this.thisContext = getApplicationContext();
 		setContentView(R.layout.activity_calculator);
 		
 		initializeUI();
@@ -196,32 +192,77 @@ public class ActivityCalculator extends Activity
 				textString.append(9);
 				textInput.setText(textString.toString());
 				break;
-			case R.id.btnPlus:
-				textString.append(thisContext.getResources().getString(R.string.plus));
-				textInput.setText(textString.toString());
-				break;
-			case R.id.btnMinus:
-				textString.append(thisContext.getResources().getString(R.string.minus));
-				textInput.setText(textString.toString());
-				break;
-			case R.id.btnMultiply:
-				textString.append(thisContext.getResources().getString(R.string.multiply));
-				textInput.setText(textString.toString());
-				break;
-			case R.id.btnDivide:
-				textString.append(thisContext.getResources().getString(R.string.divide));
-				textInput.setText(textString.toString());
-				break;
-			case R.id.btnLeftP:
-				textString.append(thisContext.getResources().getString(R.string.leftPar));
-				textInput.setText(textString.toString());
-				break;
-			case R.id.btnRightP:
-				if ((textInput.getText().toString().contains("("))){
-					textString.append(thisContext.getResources().getString(R.string.rightPar));
+			case R.id.btnPlus: {
+				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
+				if (lastChar == R.string.leftPar || lastChar == R.string.minus || 
+				lastChar == R.string.multiply || lastChar == R.string.divide){
+					textString.deleteCharAt(textString.length() - 1);
+					textString.append(getResources().getString(R.string.plus));
+					textInput.setText(textString.toString());
+				}else{
+					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
 				}
 				break;
+			}
+			case R.id.btnMinus: {
+				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
+				lastChar == R.string.multiply || lastChar == R.string.divide){
+					textString.deleteCharAt(textString.length() - 1);
+					textString.append(getResources().getString(R.string.minus));
+					textInput.setText(textString.toString());
+				}else{
+					textString.append(getResources().getString(R.string.plus));
+					textInput.setText(textString.toString());
+				}
+				break;
+			}
+			case R.id.btnMultiply: {
+				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
+				lastChar == R.string.minus || lastChar == R.string.divide){
+					textString.deleteCharAt(textString.length() - 1);
+					textString.append(getResources().getString(R.string.multiply));
+					textInput.setText(textString.toString());
+				}else{
+					textString.append(getResources().getString(R.string.plus));
+					textInput.setText(textString.toString());
+				}
+				break;
+			}
+			case R.id.btnDivide: {
+				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
+				lastChar == R.string.minus || lastChar == R.string.divide){
+					textString.deleteCharAt(textString.length() - 1);
+					textString.append(getResources().getString(R.string.divide));
+					textInput.setText(textString.toString());
+				}else{
+					textString.append(getResources().getString(R.string.plus));
+					textInput.setText(textString.toString());
+				}
+				break;
+			}
+			case R.id.btnLeftP:
+				textString.append(getResources().getString(R.string.leftPar));
+				textInput.setText(textString.toString());
+				break;
+			case R.id.btnRightP: {
+				if ((textInput.getText().toString().contains("("))){
+					char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
+					if (lastChar == R.string.plus || lastChar == R.string.minus || 
+					lastChar == R.string.multiply || lastChar == R.string.divide){
+						textString.deleteCharAt(textString.length() - 1);
+						textString.append(getResources().getString(R.string.rightPar));
+						textInput.setText(textString.toString());
+					}else{
+						textString.append(getResources().getString(R.string.rightPar));
+						textInput.setText(textString.toString());
+					}
+				}
+				break;
+			}
 			case R.id.btnClear:
 				textString.setLength(0);
 				textInput.setText("");
