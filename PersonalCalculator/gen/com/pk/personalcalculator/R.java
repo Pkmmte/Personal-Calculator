@@ -59,7 +59,7 @@ public final class R {
         public static final int CheckText=0x7f0a0022;
         public static final int Description=0x7f0a001e;
         public static final int EXP_COL=0x7f0a0027;
-        public static final int Frame=0x7f0a001a;
+        public static final int Frame=0x7f0a0018;
         public static final int Image=0x7f0a001c;
         public static final int Input=0x7f0a0000;
         public static final int ListView=0x7f0a001f;
@@ -95,10 +95,10 @@ public final class R {
         public static final int btnRightP=0x7f0a0005;
         public static final int btnSwitch=0x7f0a0015;
         public static final int checkBox=0x7f0a0024;
-        public static final int start=0x7f0a0019;
+        public static final int start=0x7f0a001a;
         public static final int textValue=0x7f0a0025;
         public static final int textView1=0x7f0a0017;
-        public static final int timer=0x7f0a0018;
+        public static final int timer=0x7f0a0019;
         public static final int view=0x7f0a0028;
     }
     public static final class layout {
@@ -106,10 +106,11 @@ public final class R {
         public static final int activity_debug=0x7f030001;
         public static final int activity_main=0x7f030002;
         public static final int activity_manage=0x7f030003;
-        public static final int fragment_manageitem=0x7f030004;
-        public static final int fragment_managelist=0x7f030005;
-        public static final int manage_item=0x7f030006;
-        public static final int settings_item=0x7f030007;
+        public static final int fragment_lockdown=0x7f030004;
+        public static final int fragment_manageitem=0x7f030005;
+        public static final int fragment_managelist=0x7f030006;
+        public static final int manage_item=0x7f030007;
+        public static final int settings_item=0x7f030008;
     }
     public static final class menu {
         public static final int action_menu=0x7f090000;
