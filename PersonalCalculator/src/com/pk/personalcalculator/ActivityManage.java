@@ -3,7 +3,6 @@ package com.pk.personalcalculator;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -17,7 +16,6 @@ import android.view.MenuItem;
 public class ActivityManage extends FragmentActivity
 {
 	ActionBar actionBar;
-	private SharedPreferences prefs;
 	
 	static Fragment fragList;
 	static Fragment fragItem;
@@ -35,7 +33,6 @@ public class ActivityManage extends FragmentActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manage);
 		
-		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		onPage = 1;

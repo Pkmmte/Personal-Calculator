@@ -5,11 +5,10 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Simply tap on a plugin and touch the &quot;Activate&quot; button to enable it. Some plugins are free and some are paid. \nMore are coming soon!\n\nTip: Enabling a plugins enables new settings" />
+        android:text="@string/MANAGE_Description" />
 
     <ListView
         android:id="@+id/ListView"

@@ -21,5 +21,8 @@
     <string name="widget_description">Be able to do your calculations from within your homescreen or lockscreen with this simple widget!</string>
     <string name="popup_description">Multitask with a pop up version of the application. It is resizable and allows you to open multiple sessions.</string>
     <string name="graphing_description">Unleash the power of graphing with this plugin! Advanced math has never been easier. </string>
+    <string name="MANAGE_Description">Simply tap on a plugin and touch the \"Activate\" button to enable it. More are coming soon!\n\nTip: Enabling a plugin unlocks new settings</string>
+    <string name="LOCKDOWN_Intro">Select the amount of time for which you wish to lockdown your phone during calculator use. \n\nUse hours and minutes respectively.</string>
+    <string name="start">Start</string>
 
 </resources>
