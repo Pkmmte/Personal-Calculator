@@ -30,7 +30,7 @@ public class FragmentManageList extends Fragment
 		listOfItems.add("Lockdown");
 		listOfItems.add("Widget");
 		listOfItems.add("Pop Up");
-		listOfItems.add("Graphing");
+		// listOfItems.add("Graphing"); Implement later
 		
 		adapter = new ManageAdapter(getActivity().getBaseContext(), listOfItems);
 		

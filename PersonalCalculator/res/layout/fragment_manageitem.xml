@@ -75,7 +75,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
-        android:background="@drawable/button_selector"
+        android:background="@drawable/button_blue_selector"
         android:text="@string/PlaceHolder_VALUE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />

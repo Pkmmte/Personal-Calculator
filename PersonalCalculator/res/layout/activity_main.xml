@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/button_selector"
+        android:background="@drawable/button_blue_selector"
         android:text="Start"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />
