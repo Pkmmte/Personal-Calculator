@@ -39,5 +39,11 @@
     <string name="debug_forcestop">Force Stop</string>
     <string name="debug_reset">Reset</string>
     <string name="debug_values">Variable Values</string>
+    <string name="plus">+</string>
+    <string name="minus">\u2212</string>
+    <string name="divide">\u00f7</string>
+    <string name="multiply">\u00d7</string>
+    <string name="leftPar">\u0028</string>
+    <string name="rightPar">\u0029</string>
 
 </resources>

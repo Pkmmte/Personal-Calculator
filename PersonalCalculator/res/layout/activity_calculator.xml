@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="right|center"
     android:orientation="vertical"
     tools:ignore="NestedWeights" >
 
@@ -11,21 +12,16 @@
         android:layout_margin="10dp"
         android:layout_weight="1" >
 
-        <EditText
+        <TextView
             android:id="@+id/Input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textSize="@dimen/text_view"
+            android:gravity="right|center_vertical" />
 
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/item_selector"
-            android:text="DEL" />
     </RelativeLayout>
 
     <LinearLayout
@@ -35,12 +31,29 @@
         android:background="@color/white"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btnExpand"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="v" />
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/btnExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:background="@drawable/border_selector"
+                android:src="@drawable/expand"
+                android:text="v" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/item_selector"
+                android:text="DEL" 
+                android:onClick="buttonClick" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +70,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
                 android:text="Clear"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnLeftP"
@@ -67,7 +81,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
                 android:text="("
-                android:textSize="@dimen/btnSize" />
+                android:textSize="@dimen/btnSize"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnRightP"
@@ -77,7 +92,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
                 android:text=")"
-                android:textSize="@dimen/btnSize" />
+                android:textSize="@dimen/btnSize"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnDivide"
@@ -87,7 +103,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
                 android:text="÷"
-                android:textSize="@dimen/btnSize" />
+                android:textSize="@dimen/btnSize"
+                android:onClick="buttonClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,7 +123,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn7"
                 android:textSize="@dimen/btnSize"
-                android:typeface="sans" />
+                android:typeface="sans"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn8"
@@ -117,7 +135,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn8"
                 android:textSize="@dimen/btnSize"
-                android:typeface="serif" />
+                android:typeface="serif"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn9"
@@ -128,7 +147,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn9"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnMultiply"
@@ -139,7 +159,8 @@
                 android:background="@drawable/item_selector"
                 android:text="×"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -158,7 +179,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn4"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn5"
@@ -169,7 +191,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn5"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn6"
@@ -180,7 +203,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn6"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnMinus"
@@ -191,7 +215,8 @@
                 android:background="@drawable/item_selector"
                 android:text="-"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -210,7 +235,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn1"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn2"
@@ -221,7 +247,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn2"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btn3"
@@ -232,7 +259,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn3"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnPlus"
@@ -243,7 +271,8 @@
                 android:background="@drawable/item_selector"
                 android:text="+"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -263,7 +292,8 @@
                 android:background="@drawable/item_selector"
                 android:text="@string/btn0"
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnDot"
@@ -274,7 +304,8 @@
                 android:background="@drawable/item_selector"
                 android:text="."
                 android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
+                android:typeface="monospace" 
+                android:onClick="buttonClick" />
 
             <Button
                 android:id="@+id/btnSwitch"
@@ -283,8 +314,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="+/-"
-                android:textSize="@dimen/btnSize"
+                android:textSize="@dimen/btnSwitch"
                 android:typeface="monospace" />
 
             <Button
@@ -297,8 +329,10 @@
                 android:text="="
                 android:textSize="@dimen/btnSize"
                 android:textStyle="bold"
-                android:typeface="monospace" />
+                android:typeface="monospace"
+                android:onClick="buttonClick" />
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.pk.personalcalculator;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 public class ActivityCalculator extends Activity
 {
+	//	A context for special purposes
+	Context thisContext;
 	
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
@@ -35,8 +38,10 @@ public class ActivityCalculator extends Activity
 	Button btn8;
 	Button btn9;
 	
-	// The EditText field
-	EditText text;
+	// The text view form
+	TextView textInput;
+	
+	StringBuilder textString = new StringBuilder();
 	
 	MenuItem mItemDebug;
 	
@@ -45,6 +50,7 @@ public class ActivityCalculator extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		this.thisContext = getApplicationContext();
 		setContentView(R.layout.activity_calculator);
 		
 		initializeUI();
@@ -108,7 +114,7 @@ public class ActivityCalculator extends Activity
 		btn7 = (Button) findViewById(R.id.btn7);
 		btn8 = (Button) findViewById(R.id.btn8);
 		btn9 = (Button) findViewById(R.id.btn9);
-		text = (EditText) findViewById(R.id.Input);
+		textInput = (TextView) findViewById(R.id.Input);
 		
 		btnClear.setTypeface(robotoBoldCondensed);
 		btn0.setTypeface(robotoThin);
@@ -121,7 +127,9 @@ public class ActivityCalculator extends Activity
 		btn7.setTypeface(robotoThin);
 		btn8.setTypeface(robotoThin);
 		btn9.setTypeface(robotoThin);
-		text.setTypeface(robotoThin);
+		textInput.setTypeface(robotoThin);
+		
+		textInput.setText("");
 	}
 	
 	// Lock down the system
@@ -144,60 +152,85 @@ public class ActivityCalculator extends Activity
 	}
 	
 	// This method will determine what will happen when a button is pressed.
-	public void buttonClickHandler(View v)
+	public void buttonClick(View v)
 	{
 		switch (v.getId())
 		{
 			case R.id.btn0:
-				text.append("0");
+				textString.append(0);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn1:
-				text.append("1");
+				textString.append(1);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn2:
-				text.append("2");
+				textString.append(2);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn3:
-				text.append("3");
+				textString.append(3);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn4:
-				text.append("4");
+				textString.append(4);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn5:
-				text.append("5");
+				textString.append(5);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn6:
-				text.append("6");
+				textString.append(6);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn7:
-				text.append("7");
+				textString.append(7);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn8:
-				text.append("8");
+				textString.append(8);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btn9:
-				text.append("9");
+				textString.append(9);
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnPlus:
-				text.append("+");
+				textString.append(thisContext.getResources().getString(R.string.plus));
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnMinus:
-				text.append("-");
+				textString.append(thisContext.getResources().getString(R.string.minus));
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnMultiply:
-				text.append("*");
+				textString.append(thisContext.getResources().getString(R.string.multiply));
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnDivide:
-				text.append("/");
+				textString.append(thisContext.getResources().getString(R.string.divide));
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnLeftP:
-				text.append("(");
+				textString.append(thisContext.getResources().getString(R.string.leftPar));
+				textInput.setText(textString.toString());
 				break;
 			case R.id.btnRightP:
-				text.append(")");
+				if ((textInput.getText().toString().contains("("))){
+					textString.append(thisContext.getResources().getString(R.string.rightPar));
+					textInput.setText(textString.toString());
+				}
 				break;
 			case R.id.btnClear:
-				text.setText("");
+				textString.setLength(0);
+				textInput.setText("");
+				break;
+			case R.id.btnDelete:
+				if (!(textInput.getText().toString().isEmpty())){
+					textString.deleteCharAt(textString.length() - 1);
+					textInput.setText(textString.toString());
+				}
 				break;
 			case R.id.btnEqual:
 				solve(); // Stub method; incomplete but skeletally functional.
@@ -206,9 +239,10 @@ public class ActivityCalculator extends Activity
 									// here.;
 				break;
 			case R.id.btnDot:
-				if (!text.getText().toString().contains("."))
+				if (!textInput.getText().toString().contains("."))
 				{
-					text.append(".");
+					textString.append(".");
+					textInput.setText(textString.toString());
 				}
 				break;
 		}
