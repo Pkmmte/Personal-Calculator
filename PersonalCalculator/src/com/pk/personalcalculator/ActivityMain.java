@@ -1,31 +1,35 @@
 package com.pk.personalcalculator;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TimePicker;
 
-public class ActivityMain extends Activity
+public class ActivityMain extends FragmentActivity
 {
-	// For debugging purposes. Remember to set to false if released. (Even a
-	// public beta)
+	// For debugging purposes. Remember to set to false if released.
 	final static Boolean DebugMode = true;
-
+	boolean firstTime;
+	boolean lockdownEnabled;
 	private SharedPreferences prefs;
-	int Hours;
-	int Minutes;
 
+	Fragment fragLockdown;
+	static Fragment fragIntroduction;
+	static FragmentManager fm;
+	static FragmentTransaction transaction;
+	
+	MenuItem mItemManage;
+	MenuItem mItemSettings;
 	MenuItem mItemDebug;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -33,69 +37,16 @@ public class ActivityMain extends Activity
 		setContentView(R.layout.activity_main);
 
 		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
-		final TimePicker timer = (TimePicker)findViewById(R.id.timer);
-		timer.setIs24HourView(true);
-		final Button start = (Button)findViewById(R.id.start); // This is somehow assigned as NULL.
+		fm = getSupportFragmentManager();
 		
-		boolean firstTime = prefs.getBoolean("First Time", true);
+		firstTime = prefs.getBoolean("First Time", true);
+		lockdownEnabled = prefs.getBoolean("Activated_Lockdown", false);
 		if(firstTime)
 			showIntroduction();
-		
-		start.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				Hours = timer.getCurrentHour();
-				Minutes = timer.getCurrentMinute();
-				
-				String confirmMessage;
-				String youCrazy = "\n(That's a long time..)";
-				String areYouHigh = "\n(That's a VERY long time!)";
-				if(Hours > 0)
-					confirmMessage = "Are you sure you wish to lock down your phone for " + Hours + " hours and " + Minutes + " minutes?";
-				else
-					confirmMessage = "Are you sure you wish to lock down your phone for " + Minutes + " minutes?";
-				if (Hours > 12)
-					confirmMessage += areYouHigh;
-				else if (Hours > 5)
-					confirmMessage += youCrazy;
-				
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ActivityMain.this);
-				
-				// set title
-				alertDialogBuilder.setTitle("Confirm");
-				
-				// set dialog message
-				alertDialogBuilder.setMessage(confirmMessage);
-				alertDialogBuilder.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int id)
-					{
-						// if this button is clicked, close
-						// current activity
-						Intent intent = new Intent(ActivityMain.this, ActivityCalculator.class);
-						startActivity(intent);
-					}
-				}).setNegativeButton("No", new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int id)
-					{
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						dialog.cancel();
-					}
-				});
-				
-				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				
-				// show it
-				alertDialog.show();
-			}
-		});
+		else if(lockdownEnabled)
+			showLockdown();
+		else
+			startActivity(new Intent(ActivityMain.this, ActivityCalculator.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 	}
 	
 	@Override
@@ -103,8 +54,17 @@ public class ActivityMain extends Activity
 	{
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.action_menu, menu);
-		
+
+		this.mItemManage = menu.findItem(R.id.action_manage);
+		this.mItemSettings = menu.findItem(R.id.action_settings);
 		this.mItemDebug = menu.findItem(R.id.action_debug);
+		
+		// If this is their first time, ignore the action bar menu
+		if(firstTime)
+		{
+			mItemManage.setVisible(false);
+			mItemSettings.setVisible(false);
+		}
 		
 		// If on debug mode, let us debug!
 		if(ActivityMain.DebugMode)
@@ -142,11 +102,50 @@ public class ActivityMain extends Activity
 	public void showIntroduction()
 	{
 		setDefaults();
+
+		fragIntroduction = FragmentIntroduction.newInstance(1);
+		transaction = fm.beginTransaction();
+		transaction.replace(R.id.Frame, fragIntroduction);
+		transaction.commit();
 	}
 	
 	public void showLockdown()
 	{
+		fragLockdown = new FragmentLockdown();
+		transaction = fm.beginTransaction();
+		transaction.replace(R.id.Frame, fragLockdown);
+		transaction.commit();
+	}
+	
+	public void onStartClick(View v)
+	{
+		FragmentLockdown.onStartClick(ActivityMain.this);
+	}
+	
+	public void onSkipClick(View v)
+	{
+		Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
+		skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(skipIntent);
+	}
+	
+	public void onNextClick(View v)
+	{
+		int pageNum = Integer.parseInt(v.getTag().toString());
 		
+		if(pageNum == 4)
+		{
+			Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
+			skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(skipIntent);
+		}
+		else
+		{
+			fragIntroduction = FragmentIntroduction.newInstance(pageNum + 1);
+			transaction = fm.beginTransaction();
+			transaction.replace(R.id.Frame, fragIntroduction);
+			transaction.commit();
+		}
 	}
 	
 	public void setDefaults()

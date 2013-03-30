@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class FragmentManageItem extends Fragment
 {
 	SharedPreferences prefs;
+	Editor editor;
 	
 	ImageView imagePreview;
 	TextView textTitle;
@@ -39,6 +40,7 @@ public class FragmentManageItem extends Fragment
 	{
 		View view = inflater.inflate(R.layout.fragment_manageitem, container, false);
 		prefs = getActivity().getSharedPreferences("PersonalCalculatorPreferences", 0);
+		editor = prefs.edit();
 		final String title = getArguments().getString("Title");
 		
 		activated = prefs.getBoolean("Activated_" + title, false);
@@ -55,51 +57,44 @@ public class FragmentManageItem extends Fragment
 		{
 			btnToggle.setBackgroundResource(R.drawable.button_green_selector);
 			btnToggle.setText("Purchase");
-			btnToggle.setOnClickListener(new View.OnClickListener()
-			{
-				@Override
-				public void onClick(View v)
-				{
-					// Implement this later...
-				}
-			});
 		}
 		else
 		// Yes, I like using nested if statements!
 		{
 			if (activated)
-			{
 				btnToggle.setText("Deactivate");
-				btnToggle.setOnClickListener(new View.OnClickListener()
+			else
+				btnToggle.setText("Activate");
+		}
+		
+		btnToggle.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				if (!purchased)
 				{
-					@Override
-					public void onClick(View v)
+					
+				}
+				else
+				{
+					if (activated)
 					{
 						activated = false;
 						btnToggle.setText("Activate");
-						Editor editor = prefs.edit();
 						editor.putBoolean("Activated_" + title, activated);
 						editor.commit();
 					}
-				});
-			}
-			else
-			{
-				btnToggle.setText("Activate");
-				btnToggle.setOnClickListener(new View.OnClickListener()
-				{
-					@Override
-					public void onClick(View v)
+					else
 					{
 						activated = true;
 						btnToggle.setText("Deactivate");
-						Editor editor = prefs.edit();
 						editor.putBoolean("Activated_" + title, activated);
 						editor.commit();
 					}
-				});
+				}
 			}
-		}
+		});
 		
 		return view;
 	}

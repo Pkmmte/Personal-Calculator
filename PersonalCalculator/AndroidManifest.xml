@@ -33,6 +33,7 @@
             android:label="Settings" />
         <activity
             android:name="com.pk.personalcalculator.ActivityDebug"
+            android:noHistory="true"
             android:label="Debug" />
     </application>
 

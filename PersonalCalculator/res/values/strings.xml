@@ -24,5 +24,20 @@
     <string name="MANAGE_Description">Simply tap on a plugin and touch the \"Activate\" button to enable it. More are coming soon!\n\nTip: Enabling a plugin unlocks new settings</string>
     <string name="LOCKDOWN_Intro">Select the amount of time for which you wish to lockdown your phone during calculator use. \n\nUse hours and minutes respectively.</string>
     <string name="start">Start</string>
+    <string name="intro_skip">SKIP</string>
+    <string name="intro_next">NEXT</string>
+    <string name="intro_devs">Developed by</string>
+    <string name="intro_developers">Pkmmte Xeleon &amp; Jerry Moran</string>
+    <string name="intro_subtitle">A highly customizable calculator.</string>
+    <string name="intro_title3">Themes &amp; Lockdown</string>
+    <string name="intro_title4">Widget &amp; Pop Up</string>
+    <string name="intro_title2">Plugins &amp; Settings</string>
+    <string name="plugin_description">Various plugins are available for you to use. These include widgets, lockdown, popup calculator, graphing, and themes.</string>
+    <string name="settings_description">You are in control of what is enabled or disabled. This is your personal calculator, afterwall. Change it to your liking.</string>
+    <string name="intro_finish">FINISH</string>
+    <string name="debug_cleardata">Clear Data</string>
+    <string name="debug_forcestop">Force Stop</string>
+    <string name="debug_reset">Reset</string>
+    <string name="debug_values">Variable Values</string>
 
 </resources>
