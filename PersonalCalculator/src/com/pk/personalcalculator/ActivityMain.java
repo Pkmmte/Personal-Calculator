@@ -20,8 +20,9 @@ public class ActivityMain extends FragmentActivity
 	boolean firstTime;
 	boolean lockdownEnabled;
 	private SharedPreferences prefs;
-	
+
 	Fragment fragLockdown;
+	static Fragment fragIntroduction;
 	static FragmentManager fm;
 	static FragmentTransaction transaction;
 	
@@ -36,7 +37,6 @@ public class ActivityMain extends FragmentActivity
 		setContentView(R.layout.activity_main);
 
 		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
-		fragLockdown = new FragmentLockdown();
 		fm = getSupportFragmentManager();
 		
 		firstTime = prefs.getBoolean("First Time", true);
@@ -99,10 +99,16 @@ public class ActivityMain extends FragmentActivity
 	public void showIntroduction()
 	{
 		setDefaults();
+
+		fragIntroduction = FragmentIntroduction.newInstance(1);
+		transaction = fm.beginTransaction();
+		transaction.replace(R.id.Frame, fragIntroduction);
+		transaction.commit();
 	}
 	
 	public void showLockdown()
 	{
+		fragLockdown = new FragmentLockdown();
 		transaction = fm.beginTransaction();
 		transaction.replace(R.id.Frame, fragLockdown);
 		transaction.commit();
@@ -111,6 +117,32 @@ public class ActivityMain extends FragmentActivity
 	public void onStartClick(View v)
 	{
 		FragmentLockdown.onStartClick(ActivityMain.this);
+	}
+	
+	public void onSkipClick(View v)
+	{
+		Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
+		skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(skipIntent);
+	}
+	
+	public void onNextClick(View v)
+	{
+		int pageNum = Integer.parseInt(v.getTag().toString());
+		
+		if(pageNum == 4)
+		{
+			Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
+			skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(skipIntent);
+		}
+		else
+		{
+			fragIntroduction = FragmentIntroduction.newInstance(pageNum + 1);
+			transaction = fm.beginTransaction();
+			transaction.replace(R.id.Frame, fragIntroduction);
+			transaction.commit();
+		}
 	}
 	
 	public void setDefaults()
