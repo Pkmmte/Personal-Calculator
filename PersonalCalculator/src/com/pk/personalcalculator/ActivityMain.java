@@ -140,10 +140,7 @@ public class ActivityMain extends FragmentActivity
 		{
 			fragIntroduction = FragmentIntroduction.newInstance(pageNum + 1);
 			transaction = fm.beginTransaction();
-<<<<<<< HEAD
-=======
 			transaction.setCustomAnimations(R.anim.fancy_in_from_right, R.anim.fancy_out_to_left, R.anim.fancy_in_from_left, R.anim.fancy_out_to_right);
->>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
 			transaction.replace(R.id.Frame, fragIntroduction);
 			transaction.commit();
 		}
