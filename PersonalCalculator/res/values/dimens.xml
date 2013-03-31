@@ -4,7 +4,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="btnSize">45sp</dimen>
+<<<<<<< HEAD
     <dimen name="text_view">25sp</dimen>
+=======
+    <dimen name="text_view">30sp</dimen>
+>>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
     <dimen name="btnSwitch">40sp</dimen>
 
 </resources>

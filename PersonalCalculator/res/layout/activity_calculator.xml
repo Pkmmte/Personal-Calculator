@@ -19,14 +19,22 @@
             android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
             android:gravity="right|center_vertical"
+<<<<<<< HEAD
             android:inputType="numberDecimal"
+=======
+            android:maxLines="1"
+>>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
             android:text=""
             android:textSize="@dimen/text_view" />
 
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
+=======
+            android:layout_height="match_parent"
+>>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_weight="1"
@@ -43,10 +51,16 @@
         android:background="@color/white"
         android:orientation="vertical" >
 
-        <Button
+        <ImageButton
             android:id="@+id/btnExpand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+            android:background="@drawable/border_selector"
+            android:contentDescription="@string/PlaceHolder_VALUE"
+            android:src="@drawable/expand"
+>>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
             android:text="v" />
 
         <LinearLayout
@@ -63,6 +77,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="Clear"
                 android:textStyle="bold"
                 android:onClick="buttonClick" />
@@ -74,6 +89,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="("
                 android:textSize="@dimen/btnSize"
                 android:onClick="buttonClick" />
@@ -85,6 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text=")"
                 android:textSize="@dimen/btnSize"
                 android:onClick="buttonClick" />
@@ -96,6 +113,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="÷"
                 android:textSize="@dimen/btnSize"
                 android:onClick="buttonClick" />
@@ -115,6 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn7"
                 android:textSize="@dimen/btnSize"
                 android:typeface="sans"
@@ -127,6 +146,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn8"
                 android:textSize="@dimen/btnSize"
                 android:typeface="serif"
@@ -139,6 +159,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn9"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -151,6 +172,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="×"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -171,6 +193,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn4"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -183,6 +206,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn5"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -195,6 +219,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn6"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -207,6 +232,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="-"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -227,6 +253,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn1"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -239,6 +266,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn2"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -251,6 +279,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn3"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -263,6 +292,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="+"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -284,6 +314,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="@string/btn0"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace"
@@ -296,6 +327,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="."
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" 
@@ -320,6 +352,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/item_selector"
+                android:onClick="buttonClick"
                 android:text="="
                 android:textSize="@dimen/btnSize"
                 android:textStyle="bold"
