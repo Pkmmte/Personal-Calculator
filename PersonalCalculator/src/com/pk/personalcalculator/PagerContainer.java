@@ -109,6 +109,7 @@ public class PagerContainer extends FrameLayout implements
 	@Override
 	public void onPageSelected(int position)
 	{
+		// Do nothing
 	}
 	
 	@Override

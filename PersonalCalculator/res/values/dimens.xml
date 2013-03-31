@@ -5,10 +5,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="btnSize">45sp</dimen>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <dimen name="text_view">25sp</dimen>
 =======
     <dimen name="text_view">30sp</dimen>
 >>>>>>> 0417dc9254b0ec8a76a0fe897759bc860e26c2fa
+=======
+    <dimen name="text_view">40sp</dimen>
+    <dimen name="theme2_input">40sp</dimen>
+>>>>>>> adfd9dbbffa5abedbb83b43928fbf95815ca35d2
     <dimen name="btnSwitch">40sp</dimen>
 
 </resources>
