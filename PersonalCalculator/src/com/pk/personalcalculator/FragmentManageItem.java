@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FragmentManageItem extends Fragment
 {
@@ -22,14 +24,22 @@ public class FragmentManageItem extends Fragment
 	
 	ImageView imagePreview;
 	TextView textTitle;
+	RelativeLayout themeSelector;
 	static TextView textDescription;
-	Button btnToggle;
+	static Button btnToggle;
 	
 	boolean activated;
 	boolean purchased;
+	static int selectedTheme;
 	static int themePosition;
+	static String theme1;
+	static String theme2;
+	static String theme3;
+	static String theme4;
+	static String theme5;
 	
 	PagerContainer mContainer;
+	ViewPager pager;
 	
 	public static final FragmentManageItem newInstance(String title)
 	{
@@ -52,34 +62,71 @@ public class FragmentManageItem extends Fragment
 		
 		activated = prefs.getBoolean("Activated_" + title, false);
 		purchased = prefs.getBoolean("Purchased_" + title, false);
-		themePosition = 0;
+		selectedTheme = prefs.getInt("Theme", 0);
+		themePosition = selectedTheme;
+		theme1 = getResources().getString(R.string.theme1_description);
+		theme2 = getResources().getString(R.string.theme2_description);
+		theme3 = getResources().getString(R.string.theme3_description);
+		theme4 = getResources().getString(R.string.theme4_description);
+		theme5 = getResources().getString(R.string.theme5_description);
 		
+		themeSelector = (RelativeLayout) view.findViewById(R.id.ThemeSelector);
 		mContainer = (PagerContainer) view.findViewById(R.id.pager_container);
 		imagePreview = (ImageView) view.findViewById(R.id.Image);
 		textTitle = (TextView) view.findViewById(R.id.Title);
 		textDescription = (TextView) view.findViewById(R.id.Description);
 		btnToggle = (Button) view.findViewById(R.id.Toggle);
+		pager = mContainer.getViewPager();
+		pager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+		PagerAdapter adapter = new MyPagerAdapter();
+		pager.setAdapter(adapter);
+		pager.setOffscreenPageLimit(adapter.getCount());
+		pager.setPageMargin(15);
+		pager.setClipChildren(false);
+		pager.setCurrentItem(themePosition);
 		
 		textTitle.setText(title);
+		switch (themePosition)
+		{
+			case 0:
+				textDescription.setText(theme1);
+				break;
+			case 1:
+				textDescription.setText(theme2);
+				break;
+			case 2:
+				textDescription.setText(theme3);
+				break;
+			case 3:
+				textDescription.setText(theme4);
+				break;
+			case 4:
+				textDescription.setText(theme5);
+				break;
+		}
 		
 		if (title.equals("Themes"))
 		{
 			imagePreview.setVisibility(View.GONE);
-			mContainer.setVisibility(View.VISIBLE);
-		}
-		
-		if (!purchased)
-		{
-			btnToggle.setBackgroundResource(R.drawable.button_green_selector);
-			btnToggle.setText("Purchase");
+			themeSelector.setVisibility(View.VISIBLE);
+			
+			// Default theme is already selected so..
+			btnToggle.setText("Selected");
 		}
 		else
-		// Yes, I like using nested if statements!
 		{
-			if (activated)
-				btnToggle.setText("Deactivate");
+			if (!purchased)
+			{
+				btnToggle.setBackgroundResource(R.drawable.button_green_selector);
+				btnToggle.setText("Purchase");
+			}
 			else
-				btnToggle.setText("Activate");
+			{
+				if (activated)
+					btnToggle.setText("Deactivate");
+				else
+					btnToggle.setText("Activate");
+			}
 		}
 		
 		btnToggle.setOnClickListener(new View.OnClickListener()
@@ -87,43 +134,49 @@ public class FragmentManageItem extends Fragment
 			@Override
 			public void onClick(View v)
 			{
-				if (!purchased)
+				if (title.equals("Themes"))
 				{
-					
+					if(themePosition == selectedTheme)
+						Toast.makeText(getActivity().getBaseContext(), "You already have this theme selected!", Toast.LENGTH_SHORT).show();
+					else
+					{
+						selectedTheme = themePosition;
+						
+						Editor editor = prefs.edit();
+						editor.putInt("Theme", selectedTheme);
+						editor.commit();
+						
+						btnToggle.setText("Selected");
+					}
 				}
 				else
 				{
-					if (activated)
+					if (!purchased)
 					{
-						activated = false;
-						btnToggle.setText("Activate");
-						editor.putBoolean("Activated_" + title, activated);
-						editor.commit();
+						
 					}
 					else
 					{
-						activated = true;
-						btnToggle.setText("Deactivate");
-						editor.putBoolean("Activated_" + title, activated);
-						editor.commit();
+						if (activated)
+						{
+							activated = false;
+							btnToggle.setText("Activate");
+							editor.putBoolean("Activated_" + title, activated);
+							editor.commit();
+						}
+						else
+						{
+							activated = true;
+							btnToggle.setText("Deactivate");
+							editor.putBoolean("Activated_" + title, activated);
+							editor.commit();
+						}
 					}
 				}
 			}
 		});
 		
-		ViewPager pager = mContainer.getViewPager();
-		pager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-		PagerAdapter adapter = new MyPagerAdapter();
-		pager.setAdapter(adapter);
-		//Necessary or the pager will only have one extra page to show
-		// make this at least however many pages you can see
-		pager.setOffscreenPageLimit(adapter.getCount());
-		//A little space between pages
-		pager.setPageMargin(15);
 		
-		//If hardware acceleration is enabled, you should also remove
-		// clipping on the pager for its children.
-		pager.setClipChildren(false);
 		
 		return view;
 	}
@@ -131,7 +184,30 @@ public class FragmentManageItem extends Fragment
 	public static void onViewPagerChange(int position)
 	{
 		themePosition = position;
-		textDescription.setText("Item " + position);
+		
+		switch (themePosition)
+		{
+			case 0:
+				textDescription.setText(theme1);
+				break;
+			case 1:
+				textDescription.setText(theme2);
+				break;
+			case 2:
+				textDescription.setText(theme3);
+				break;
+			case 3:
+				textDescription.setText(theme4);
+				break;
+			case 4:
+				textDescription.setText(theme5);
+				break;
+		}
+		
+		if(themePosition != selectedTheme)
+			btnToggle.setText("Select");
+		else
+			btnToggle.setText("Selected");
 	}
 	
 	private class MyPagerAdapter extends PagerAdapter

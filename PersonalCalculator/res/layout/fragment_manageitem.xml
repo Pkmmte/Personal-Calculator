@@ -11,20 +11,37 @@
         android:layout_above="@+id/Toggle"
         android:orientation="vertical" >
 
-        <com.pk.personalcalculator.PagerContainer
-            android:id="@+id/pager_container"
+        <RelativeLayout
+            android:id="@+id/ThemeSelector"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3.5"
             android:visibility="gone" >
 
-            <android.support.v4.view.ViewPager
-                android:layout_width="150dp"
+            <ImageView
+                android:id="@+id/Selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/PlaceHolder_VALUE"
+                android:src="@drawable/expand" />
+
+            <com.pk.personalcalculator.PagerContainer
+                android:id="@+id/pager_container"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp" />
-        </com.pk.personalcalculator.PagerContainer>
+                android:layout_below="@+id/Selected"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" >
+
+                <android.support.v4.view.ViewPager
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal" >
+                </android.support.v4.view.ViewPager>
+            </com.pk.personalcalculator.PagerContainer>
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/Image"

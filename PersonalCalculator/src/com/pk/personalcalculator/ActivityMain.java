@@ -165,6 +165,9 @@ public class ActivityMain extends FragmentActivity
 		editor.putBoolean("Activated_Widget", true);
 		editor.putBoolean("Activated_Pop Up", true);
 		
+		// Default theme.
+		editor.putInt("Theme", 0);
+		
 		// Settings
 		
 		editor.commit();

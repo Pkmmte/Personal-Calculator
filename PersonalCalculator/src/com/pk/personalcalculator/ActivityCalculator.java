@@ -2,6 +2,7 @@ package com.pk.personalcalculator;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,17 +14,23 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ActivityCalculator extends Activity
 {
+	private SharedPreferences prefs;
+	private int selectedTheme;
 	
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
 	Typeface robotoBoldCondensed;
 	
 	// Buttons...
+	ImageButton btnExpand;
 	Button btnClear;
+	Button btnDelete;
+	Button btnEqual;
 	Button btn0;
 	Button btn1;
 	Button btn2;
@@ -34,6 +41,14 @@ public class ActivityCalculator extends Activity
 	Button btn7;
 	Button btn8;
 	Button btn9;
+	Button btnLeftP;
+	Button btnRightP;
+	Button btnDivide;
+	Button btnMultiply;
+	Button btnMinus;
+	Button btnPlus;
+	Button btnDot;
+	Button btnSwitch;
 	
 	// The text view form
 	TextView textInput;
@@ -48,6 +63,8 @@ public class ActivityCalculator extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculator);
+		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
+		selectedTheme = prefs.getInt("Theme", 0);
 		
 		initializeUI();
 		//lockdown();
@@ -63,7 +80,7 @@ public class ActivityCalculator extends Activity
 		this.mItemDebug = menu.findItem(R.id.action_debug);
 		
 		// If on debug mode, let us debug!
-		if(ActivityMain.DebugMode)
+		if (ActivityMain.DebugMode)
 			mItemDebug.setVisible(true);
 		else
 			mItemDebug.setVisible(false);
@@ -99,7 +116,10 @@ public class ActivityCalculator extends Activity
 		robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
 		robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
 		
+		btnExpand = (ImageButton) findViewById(R.id.btnExpand);
 		btnClear = (Button) findViewById(R.id.btnClear);
+		btnDelete = (Button) findViewById(R.id.btnDelete);
+		btnEqual = (Button) findViewById(R.id.btnEqual);
 		btn0 = (Button) findViewById(R.id.btn0);
 		btn1 = (Button) findViewById(R.id.btn1);
 		btn2 = (Button) findViewById(R.id.btn2);
@@ -110,22 +130,19 @@ public class ActivityCalculator extends Activity
 		btn7 = (Button) findViewById(R.id.btn7);
 		btn8 = (Button) findViewById(R.id.btn8);
 		btn9 = (Button) findViewById(R.id.btn9);
+		btnLeftP = (Button) findViewById(R.id.btnLeftP);
+		btnRightP = (Button) findViewById(R.id.btnRightP);
+		btnDivide = (Button) findViewById(R.id.btnDivide);
+		btnMultiply = (Button) findViewById(R.id.btnMultiply);
+		btnMinus = (Button) findViewById(R.id.btnMinus);
+		btnPlus = (Button) findViewById(R.id.btnPlus);
+		btnDot = (Button) findViewById(R.id.btnDot);
+		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		textInput = (TextView) findViewById(R.id.Input);
 		
-		btnClear.setTypeface(robotoBoldCondensed);
-		btn0.setTypeface(robotoThin);
-		btn1.setTypeface(robotoThin);
-		btn2.setTypeface(robotoThin);
-		btn3.setTypeface(robotoThin);
-		btn4.setTypeface(robotoThin);
-		btn5.setTypeface(robotoThin);
-		btn6.setTypeface(robotoThin);
-		btn7.setTypeface(robotoThin);
-		btn8.setTypeface(robotoThin);
-		btn9.setTypeface(robotoThin);
-		textInput.setTypeface(robotoThin);
-		
 		textInput.setText("");
+		
+		setCalculatorTheme(selectedTheme);
 	}
 	
 	// Lock down the system
@@ -145,6 +162,52 @@ public class ActivityCalculator extends Activity
 		
 		handleParams.gravity = Gravity.TOP;
 		getWindow().addContentView(disableStatusBar, handleParams);
+	}
+	
+	// Set calculator theme
+	public void setCalculatorTheme(int theme)
+	{
+		if (theme == 1)
+		{
+			// Google Now theme
+			textInput.setTextSize(R.dimen.theme2_input);
+			btnExpand.setBackgroundResource(R.drawable.border_selector);
+			btnDelete.setBackgroundResource(R.drawable.item_selector);
+			btnEqual.setBackgroundResource(R.drawable.item_selector);
+			btnSwitch.setBackgroundResource(R.drawable.item_selector);
+			btnClear.setBackgroundResource(R.drawable.item_selector);
+			btnLeftP.setBackgroundResource(R.drawable.item_selector);
+			btnRightP.setBackgroundResource(R.drawable.item_selector);
+			btnDivide.setBackgroundResource(R.drawable.item_selector);
+			btnMultiply.setBackgroundResource(R.drawable.item_selector);
+			btnMinus.setBackgroundResource(R.drawable.item_selector);
+			btnPlus.setBackgroundResource(R.drawable.item_selector);
+			btnDot.setBackgroundResource(R.drawable.item_selector);
+			btn0.setBackgroundResource(R.drawable.item_selector);
+			btn1.setBackgroundResource(R.drawable.item_selector);
+			btn2.setBackgroundResource(R.drawable.item_selector);
+			btn3.setBackgroundResource(R.drawable.item_selector);
+			btn4.setBackgroundResource(R.drawable.item_selector);
+			btn5.setBackgroundResource(R.drawable.item_selector);
+			btn6.setBackgroundResource(R.drawable.item_selector);
+			btn7.setBackgroundResource(R.drawable.item_selector);
+			btn8.setBackgroundResource(R.drawable.item_selector);
+			btn9.setBackgroundResource(R.drawable.item_selector);
+			
+			btnClear.setTypeface(robotoBoldCondensed);
+			btn0.setTypeface(robotoThin);
+			btn1.setTypeface(robotoThin);
+			btn2.setTypeface(robotoThin);
+			btn3.setTypeface(robotoThin);
+			btn4.setTypeface(robotoThin);
+			btn5.setTypeface(robotoThin);
+			btn6.setTypeface(robotoThin);
+			btn7.setTypeface(robotoThin);
+			btn8.setTypeface(robotoThin);
+			btn9.setTypeface(robotoThin);
+			textInput.setTypeface(robotoThin);
+		}
+		
 	}
 	
 	// This method will determine what will happen when a button is pressed.
@@ -192,53 +255,65 @@ public class ActivityCalculator extends Activity
 				textString.append(9);
 				textInput.setText(textString.toString());
 				break;
-			case R.id.btnPlus: {
+			case R.id.btnPlus:
+			{
 				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.minus || 
-				lastChar == R.string.multiply || lastChar == R.string.divide){
+				if (lastChar == R.string.leftPar || lastChar == R.string.minus || lastChar == R.string.multiply || lastChar == R.string.divide)
+				{
 					textString.deleteCharAt(textString.length() - 1);
 					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
-				}else{
+				}
+				else
+				{
 					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
 				}
 				break;
 			}
-			case R.id.btnMinus: {
+			case R.id.btnMinus:
+			{
 				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
-				lastChar == R.string.multiply || lastChar == R.string.divide){
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.multiply || lastChar == R.string.divide)
+				{
 					textString.deleteCharAt(textString.length() - 1);
 					textString.append(getResources().getString(R.string.minus));
 					textInput.setText(textString.toString());
-				}else{
+				}
+				else
+				{
 					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
 				}
 				break;
 			}
-			case R.id.btnMultiply: {
+			case R.id.btnMultiply:
+			{
 				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
-				lastChar == R.string.minus || lastChar == R.string.divide){
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.divide)
+				{
 					textString.deleteCharAt(textString.length() - 1);
 					textString.append(getResources().getString(R.string.multiply));
 					textInput.setText(textString.toString());
-				}else{
+				}
+				else
+				{
 					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
 				}
 				break;
 			}
-			case R.id.btnDivide: {
+			case R.id.btnDivide:
+			{
 				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || 
-				lastChar == R.string.minus || lastChar == R.string.divide){
+				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.divide)
+				{
 					textString.deleteCharAt(textString.length() - 1);
 					textString.append(getResources().getString(R.string.divide));
 					textInput.setText(textString.toString());
-				}else{
+				}
+				else
+				{
 					textString.append(getResources().getString(R.string.plus));
 					textInput.setText(textString.toString());
 				}
@@ -248,15 +323,19 @@ public class ActivityCalculator extends Activity
 				textString.append(getResources().getString(R.string.leftPar));
 				textInput.setText(textString.toString());
 				break;
-			case R.id.btnRightP: {
-				if ((textInput.getText().toString().contains("("))){
+			case R.id.btnRightP:
+			{
+				if ((textInput.getText().toString().contains("(")))
+				{
 					char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-					if (lastChar == R.string.plus || lastChar == R.string.minus || 
-					lastChar == R.string.multiply || lastChar == R.string.divide){
+					if (lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.multiply || lastChar == R.string.divide)
+					{
 						textString.deleteCharAt(textString.length() - 1);
 						textString.append(getResources().getString(R.string.rightPar));
 						textInput.setText(textString.toString());
-					}else{
+					}
+					else
+					{
 						textString.append(getResources().getString(R.string.rightPar));
 						textInput.setText(textString.toString());
 					}
@@ -268,7 +347,8 @@ public class ActivityCalculator extends Activity
 				textInput.setText("");
 				break;
 			case R.id.btnDelete:
-				if (!(textInput.getText().toString().isEmpty())){
+				if (!(textInput.getText().toString().isEmpty()))
+				{
 					textString.deleteCharAt(textString.length() - 1);
 					textInput.setText(textString.toString());
 				}
