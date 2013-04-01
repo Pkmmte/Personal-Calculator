@@ -33,7 +33,7 @@
     <string name="intro_title4">Widget &amp; Pop Up</string>
     <string name="intro_title2">Plugins &amp; Settings</string>
     <string name="plugin_description">Various plugins are available for you to use. These include widgets, lockdown, popup calculator, graphing, and themes.</string>
-    <string name="settings_description">You are in control of what is enabled or disabled. This is your personal calculator, afterwall. Change it to your liking.</string>
+    <string name="settings_description">You are in control of what is enabled or disabled. This is your personal calculator, afterall. Change it to your liking.</string>
     <string name="intro_finish">FINISH</string>
     <string name="debug_cleardata">Clear Data</string>
     <string name="debug_forcestop">Force Stop</string>
@@ -45,7 +45,7 @@
     <string name="multiply">\u00d7</string>
     <string name="leftPar">\u0028</string>
     <string name="rightPar">\u0029</string>
-    <string name="theme1_description">Default Holo Theme\n\nVisually appealing yet simplistic. This is the Android\'s default theme currently. </string>
+    <string name="theme1_description">Default Holo Theme\n\nSimplistic yet visually appealing. This is the Android\'s default theme currently. </string>
     <string name="theme2_description">Google Now Theme\n\nIt doesn\'t get simpler than this. Extremely minimal yet beautiful, this theme was brought to you by Google Now. </string>
     <string name="theme3_description">Touchwiz Theme\n\nThe exact same look as Samsung\s stock calculator app. </string>
     <string name="theme4_description">Red Theme\n\nA red version of the default holo theme. </string>
