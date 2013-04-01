@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import org.javia.arity.Complex;
+import org.javia.arity.Symbols;
+import org.javia.arity.SyntaxException;
+
 public class ActivityCalculator extends Activity
 {
 	private SharedPreferences prefs;
@@ -53,7 +57,16 @@ public class ActivityCalculator extends Activity
 	// The text view form
 	TextView textInput;
 	
+	//String builder to build the equation
 	StringBuilder textString = new StringBuilder();
+	
+	//Resource strings
+	String plusSign;
+	String minusSign;
+	String multiplySign;
+	String divideSign;
+	String leftParSign;
+	String rightParSign;
 	
 	MenuItem mItemDebug;
 	
@@ -65,8 +78,8 @@ public class ActivityCalculator extends Activity
 		setContentView(R.layout.activity_calculator);
 		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		selectedTheme = prefs.getInt("Theme", 0);
-		
 		initializeUI();
+		initializeSigns();
 		//lockdown();
 	}
 	
@@ -144,6 +157,7 @@ public class ActivityCalculator extends Activity
 		
 		setCalculatorTheme(selectedTheme);
 	}
+
 	
 	// Lock down the system
 	public void lockdown()
@@ -209,6 +223,28 @@ public class ActivityCalculator extends Activity
 		}
 		
 	}
+
+//Obtains the string resources for use with buttonClick
+public void initializeSigns()
+{
+	plusSign = getResources().getString(R.string.plus);
+	minusSign = getResources().getString(R.string.minus);
+	multiplySign = getResources().getString(R.string.multiply);
+	divideSign = getResources().getString(R.string.divide);
+	leftParSign = getResources().getString(R.string.leftPar);
+	rightParSign = getResources().getString(R.string.rightPar);
+}
+
+public boolean isASign(Character c){
+	if (c.toString().equals(plusSign) || c.toString().equals(minusSign)
+	|| c.toString().equals(multiplySign) || c.toString().equals(divideSign))
+	{
+		return true;
+	}else{
+		return false;
+	}
+	
+}
 	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
@@ -257,86 +293,89 @@ public class ActivityCalculator extends Activity
 				break;
 			case R.id.btnPlus:
 			{
-				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.minus || lastChar == R.string.multiply || lastChar == R.string.divide)
-				{
-					textString.deleteCharAt(textString.length() - 1);
-					textString.append(getResources().getString(R.string.plus));
+				if (!(textInput.getText().toString().isEmpty())){
+					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+					{
+						textString.deleteCharAt(textString.length() - 1);
+					}					
+					textString.append(plusSign);
 					textInput.setText(textString.toString());
-				}
-				else
-				{
-					textString.append(getResources().getString(R.string.plus));
-					textInput.setText(textString.toString());
+					
 				}
 				break;
 			}
 			case R.id.btnMinus:
 			{
-				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.multiply || lastChar == R.string.divide)
-				{
-					textString.deleteCharAt(textString.length() - 1);
-					textString.append(getResources().getString(R.string.minus));
+				if (!(textInput.getText().toString().isEmpty())){
+					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+					{
+						textString.deleteCharAt(textString.length() - 1);
+					}
+					textString.append(minusSign);
 					textInput.setText(textString.toString());
-				}
-				else
-				{
-					textString.append(getResources().getString(R.string.plus));
-					textInput.setText(textString.toString());
+					
 				}
 				break;
 			}
 			case R.id.btnMultiply:
 			{
-				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.divide)
-				{
-					textString.deleteCharAt(textString.length() - 1);
-					textString.append(getResources().getString(R.string.multiply));
-					textInput.setText(textString.toString());
-				}
-				else
-				{
-					textString.append(getResources().getString(R.string.plus));
+				if(!(textInput.getText().toString().isEmpty())){
+					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+					{
+						textString.deleteCharAt(textString.length() - 1);
+					}
+					textString.append(multiplySign);
 					textInput.setText(textString.toString());
 				}
 				break;
 			}
 			case R.id.btnDivide:
 			{
-				char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-				if (lastChar == R.string.leftPar || lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.divide)
-				{
-					textString.deleteCharAt(textString.length() - 1);
-					textString.append(getResources().getString(R.string.divide));
-					textInput.setText(textString.toString());
-				}
-				else
-				{
-					textString.append(getResources().getString(R.string.plus));
+				if (!(textInput.getText().toString().isEmpty())){
+					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+					{
+						textString.deleteCharAt(textString.length() - 1);
+					}
+					textString.append(divideSign);
 					textInput.setText(textString.toString());
 				}
 				break;
 			}
-			case R.id.btnLeftP:
-				textString.append(getResources().getString(R.string.leftPar));
-				textInput.setText(textString.toString());
-				break;
+			case R.id.btnLeftP:{
+				Character lastChar = null; 
+				if (!(textString.toString().isEmpty()))
+				{
+					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+				
+					if (isASign(lastChar))
+					{
+						textString.append(getResources().getString(R.string.leftPar));
+						textInput.setText(textString.toString());
+					}
+					break;
+				}
+				else
+				{
+					textString.append(getResources().getString(R.string.leftPar));
+					textInput.setText(textString.toString());
+				}
+			}
 			case R.id.btnRightP:
 			{
 				if ((textInput.getText().toString().contains("(")))
 				{
-					char lastChar = textInput.getText().charAt(textInput.getText().length() - 1);
-					if (lastChar == R.string.plus || lastChar == R.string.minus || lastChar == R.string.multiply || lastChar == R.string.divide)
+					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					if (!(lastChar.toString().equals("(")))
 					{
-						textString.deleteCharAt(textString.length() - 1);
-						textString.append(getResources().getString(R.string.rightPar));
-						textInput.setText(textString.toString());
-					}
-					else
-					{
-						textString.append(getResources().getString(R.string.rightPar));
+						if (isASign(lastChar))
+						{
+							textString.deleteCharAt(textString.length() - 1);
+						}
+						textString.append(rightParSign);
 						textInput.setText(textString.toString());
 					}
 				}
@@ -353,27 +392,77 @@ public class ActivityCalculator extends Activity
 					textInput.setText(textString.toString());
 				}
 				break;
-			case R.id.btnEqual:
-				solve(); // Stub method; incomplete but skeletally functional.
+			case R.id.btnEqual: {
+				
+				String solutionText;
+				try{
+					solutionText = solve(textString.toString()); // Has some function at the moment;
+					textString.setLength(0);
+					textString.append(solutionText);
+				}catch(SyntaxException e){
+					textString.setLength(0);
+					textString.append("Syntax Error: try again.");
+				}
+				
+				textInput.setText(textString.toString());
+			}
+				
 				break;
 			case R.id.btnSwitch: // Code for the additive inverse of a number goes
 									// here.;
 				break;
-			case R.id.btnDot:
-				if (!textInput.getText().toString().contains("."))
+			case R.id.btnDot:{
+				if (!textString.toString().isEmpty()){
+					int subStart;
+					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1
+					&& textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
+					{
+						subStart = 0;
+					}
+					if (!textInput.getText().toString().contains("."))
+					{
+						textString.append(".");
+						textInput.setText(textString.toString());
+					}
+					break;
+				}
+				else
 				{
 					textString.append(".");
 					textInput.setText(textString.toString());
 				}
-				break;
+			}
 		}
 	}
 	
 	// The method will take the text view "Input", analyze it, and construct an
 	// equation that the machine will solve;
 	// The resulting solution will be set in the text view afterwards.
-	public void solve()
+	public String solve(String equation) throws SyntaxException
 	{
+		Symbols eSymbols = new Symbols();
+		
+		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+		if (isASign(lastChar)){
+			textString.deleteCharAt(textString.length() - 1);
+			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+			equation = textString.toString();
+		}
+		
+		equation.replace('\u2212', '-');
+		equation.replace('\u00d7', '*');
+		equation.replace('\u00f7', '/');
+		equation.replace('\u0028', '(');
+		equation.replace('\u0029', ')');
+		
+		Complex value = eSymbols.evalComplex(equation);
+		
+		double solution = value.re;
+		
+		String stringSolution = "" + solution;
+		return stringSolution;
+		
+		
 		// Code for solve goes here
 	}
 }

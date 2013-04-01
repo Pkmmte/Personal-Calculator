@@ -175,8 +175,9 @@ public class FragmentManageItem extends Fragment
 				}
 			}
 		});
-		
-		
+		//If hardware acceleration is enabled, you should also remove
+		// clipping on the pager for its children.
+		pager.setClipChildren(false);
 		
 		return view;
 	}

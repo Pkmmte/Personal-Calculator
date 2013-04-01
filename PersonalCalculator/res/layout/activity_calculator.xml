@@ -29,7 +29,9 @@
             android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
             android:gravity="right|center_vertical"
+            android:inputType="numberDecimal"
             android:maxLines="1"
+            android:text=""
             android:textSize="@dimen/text_view" />
 
     </RelativeLayout>
@@ -45,6 +47,7 @@
             android:id="@+id/btnExpand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_selector"
             android:contentDescription="@string/PlaceHolder_VALUE"
             android:src="@drawable/expand"
             android:text="v" />
@@ -288,6 +291,7 @@
                 style="android:buttonBarStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="buttonClick"
                 android:text="+/-"
@@ -306,6 +310,7 @@
                 android:textStyle="bold"
                 android:typeface="monospace" />
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
