@@ -13,9 +13,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.25"
+            android:alpha="0.4"
             android:contentDescription="@string/PlaceHolder_VALUE"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/app_icon" />
 
         <TextView
             android:id="@+id/textTitle"
@@ -248,7 +248,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="25dp"
                     android:contentDescription="@string/PlaceHolder_VALUE"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/themes_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -273,7 +273,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="25dp"
                     android:contentDescription="@string/PlaceHolder_VALUE"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/lockdown_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"

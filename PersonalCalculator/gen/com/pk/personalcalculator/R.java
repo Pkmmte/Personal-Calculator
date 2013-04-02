@@ -70,9 +70,11 @@ public final class R {
         public static final int expander=0x7f02000c;
         public static final int ic_launcher=0x7f02000d;
         public static final int item_selector=0x7f02000e;
-        public static final int overflow=0x7f02000f;
-        public static final int setting=0x7f020010;
-        public static final int settings=0x7f020011;
+        public static final int lockdown_icon=0x7f02000f;
+        public static final int overflow=0x7f020010;
+        public static final int setting=0x7f020011;
+        public static final int settings=0x7f020012;
+        public static final int themes_icon=0x7f020013;
     }
     public static final class id {
         public static final int Advanced=0x7f0a003d;
