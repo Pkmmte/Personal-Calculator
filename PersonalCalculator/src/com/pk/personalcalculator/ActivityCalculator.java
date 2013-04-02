@@ -1,5 +1,9 @@
 package com.pk.personalcalculator;
 
+import org.javia.arity.Complex;
+import org.javia.arity.Symbols;
+import org.javia.arity.SyntaxException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -83,6 +87,15 @@ public class ActivityCalculator extends Activity
 		//lockdown();
 	}
 	
+	@Override
+	protected void onRestart()
+	{
+		super.onRestart();
+		
+		selectedTheme = prefs.getInt("Theme", 0);
+		setCalculatorTheme(selectedTheme);
+	}
+	
 	// Create ActionBar menu options
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
@@ -164,15 +177,7 @@ public class ActivityCalculator extends Activity
 	{
 		View disableStatusBar = new View(ActivityCalculator.this);
 		
-		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50,
-		// This allows the view to be displayed over the status bar
-		WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-		// this is to keep button presses going to the background window
-		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-		// this is to enable the notification to receive touch events
-		WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
-		// Draws over status bar
-		WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
+		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
 		
 		handleParams.gravity = Gravity.TOP;
 		getWindow().addContentView(disableStatusBar, handleParams);
@@ -181,10 +186,27 @@ public class ActivityCalculator extends Activity
 	// Set calculator theme
 	public void setCalculatorTheme(int theme)
 	{
+<<<<<<< HEAD
 		if (theme == 1)
 		{
 			// Google Now theme
 			textInput.setTextSize(R.dimen.theme2_input);
+=======
+		if (theme == 0)
+		{
+			// Default Theme
+			
+		}
+		else if (theme == 1)
+		{
+			// Default Dark Theme
+			
+		}
+		else if (theme == 2)
+		{
+			// Google Now Theme
+			textInput.setTextSize(35);
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
@@ -223,6 +245,7 @@ public class ActivityCalculator extends Activity
 		}
 		
 	}
+<<<<<<< HEAD
 
 //Obtains the string resources for use with buttonClick
 public void initializeSigns()
@@ -245,6 +268,32 @@ public boolean isASign(Character c){
 	}
 	
 }
+=======
+	
+	// Obtains the string resources for use with buttonClick
+	public void initializeSigns()
+	{
+		plusSign = getResources().getString(R.string.plus);
+		minusSign = getResources().getString(R.string.minus);
+		multiplySign = getResources().getString(R.string.multiply);
+		divideSign = getResources().getString(R.string.divide);
+		leftParSign = getResources().getString(R.string.leftPar);
+		rightParSign = getResources().getString(R.string.rightPar);
+	}
+	
+	public boolean isASign(Character c)
+	{
+		if (c.toString().equals(plusSign) || c.toString().equals(minusSign) || c.toString().equals(multiplySign) || c.toString().equals(divideSign))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
@@ -293,12 +342,21 @@ public boolean isASign(Character c){
 				break;
 			case R.id.btnPlus:
 			{
+<<<<<<< HEAD
 				if (!(textInput.getText().toString().isEmpty())){
+=======
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
 						textString.deleteCharAt(textString.length() - 1);
+<<<<<<< HEAD
 					}					
+=======
+					}
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					textString.append(plusSign);
 					textInput.setText(textString.toString());
 					
@@ -307,7 +365,12 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnMinus:
 			{
+<<<<<<< HEAD
 				if (!(textInput.getText().toString().isEmpty())){
+=======
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -321,7 +384,12 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnMultiply:
 			{
+<<<<<<< HEAD
 				if(!(textInput.getText().toString().isEmpty())){
+=======
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -334,7 +402,12 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnDivide:
 			{
+<<<<<<< HEAD
 				if (!(textInput.getText().toString().isEmpty())){
+=======
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -345,12 +418,22 @@ public boolean isASign(Character c){
 				}
 				break;
 			}
+<<<<<<< HEAD
 			case R.id.btnLeftP:{
 				Character lastChar = null; 
 				if (!(textString.toString().isEmpty()))
 				{
 					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 				
+=======
+			case R.id.btnLeftP:
+			{
+				Character lastChar = null;
+				if (!(textString.toString().isEmpty()))
+				{
+					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					if (isASign(lastChar))
 					{
 						textString.append(getResources().getString(R.string.leftPar));
@@ -392,6 +475,7 @@ public boolean isASign(Character c){
 					textInput.setText(textString.toString());
 				}
 				break;
+<<<<<<< HEAD
 			case R.id.btnEqual: {
 				
 				String solutionText;
@@ -400,6 +484,20 @@ public boolean isASign(Character c){
 					textString.setLength(0);
 					textString.append(solutionText);
 				}catch(SyntaxException e){
+=======
+			case R.id.btnEqual:
+			{
+				
+				String solutionText;
+				try
+				{
+					solutionText = solve(textString.toString()); // Has some function at the moment;
+					textString.setLength(0);
+					textString.append(solutionText);
+				}
+				catch (SyntaxException e)
+				{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					textString.setLength(0);
 					textString.append("Syntax Error: try again.");
 				}
@@ -411,11 +509,20 @@ public boolean isASign(Character c){
 			case R.id.btnSwitch: // Code for the additive inverse of a number goes
 									// here.;
 				break;
+<<<<<<< HEAD
 			case R.id.btnDot:{
 				if (!textString.toString().isEmpty()){
 					int subStart;
 					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1
 					&& textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
+=======
+			case R.id.btnDot:
+			{
+				if (!textString.toString().isEmpty())
+				{
+					int subStart;
+					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1 && textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					{
 						subStart = 0;
 					}
@@ -443,7 +550,12 @@ public boolean isASign(Character c){
 		Symbols eSymbols = new Symbols();
 		
 		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+<<<<<<< HEAD
 		if (isASign(lastChar)){
+=======
+		if (isASign(lastChar))
+		{
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 			textString.deleteCharAt(textString.length() - 1);
 			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 			equation = textString.toString();
@@ -462,7 +574,10 @@ public boolean isASign(Character c){
 		String stringSolution = "" + solution;
 		return stringSolution;
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 		// Code for solve goes here
 	}
 }

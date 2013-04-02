@@ -3,6 +3,7 @@ package com.pk.personalcalculator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class ActivityMain extends FragmentActivity
 {
@@ -41,6 +43,12 @@ public class ActivityMain extends FragmentActivity
 		
 		firstTime = prefs.getBoolean("First Time", true);
 		lockdownEnabled = prefs.getBoolean("Activated_Lockdown", false);
+		
+		if(isProInstalled())
+			Toast.makeText(ActivityMain.this, "Found paid package!", Toast.LENGTH_SHORT).show();
+		else
+			Toast.makeText(ActivityMain.this, "Aww... no paid package found..", Toast.LENGTH_SHORT).show();
+		
 		if(firstTime)
 			showIntroduction();
 		else if(lockdownEnabled)
@@ -172,4 +180,16 @@ public class ActivityMain extends FragmentActivity
 		
 		editor.commit();
 	}
+	
+	protected boolean isProInstalled()
+	{
+		PackageManager manager = ActivityMain.this.getPackageManager();
+		
+		if(manager.checkSignatures(ActivityMain.this.getPackageName(), "com.pk.personalcalculator.key") == PackageManager.SIGNATURE_MATCH)
+			return true;
+		else
+			return false;
+	}
+	
+	
 }

@@ -18,6 +18,10 @@
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+<<<<<<< HEAD
+=======
+            android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
             android:onClick="buttonClick"
             android:text="DEL" />
 
@@ -26,6 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
+<<<<<<< HEAD
+=======
+            android:layout_marginRight="10dp"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
             android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
             android:gravity="right|center_vertical"
@@ -33,7 +41,10 @@
             android:maxLines="1"
             android:text=""
             android:textSize="@dimen/text_view" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
     </RelativeLayout>
 
     <LinearLayout
@@ -47,7 +58,7 @@
             android:id="@+id/btnExpand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_selector"
+            android:background="@drawable/border_light_selector"
             android:contentDescription="@string/PlaceHolder_VALUE"
             android:src="@drawable/expand"
             android:text="v" />
@@ -65,6 +76,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="Clear"
                 android:textStyle="bold" />
@@ -75,6 +90,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="("
                 android:textSize="@dimen/btnSize" />
@@ -85,6 +104,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text=")"
                 android:textSize="@dimen/btnSize" />
@@ -95,6 +118,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="÷"
                 android:textSize="@dimen/btnSize" />
@@ -113,6 +140,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn7"
                 android:textSize="@dimen/btnSize"
@@ -124,6 +155,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn8"
                 android:textSize="@dimen/btnSize"
@@ -135,6 +170,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn9"
                 android:textSize="@dimen/btnSize"
@@ -146,6 +185,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="×"
                 android:textSize="@dimen/btnSize"
@@ -165,6 +208,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn4"
                 android:textSize="@dimen/btnSize"
@@ -176,6 +223,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn5"
                 android:textSize="@dimen/btnSize"
@@ -187,6 +238,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn6"
                 android:textSize="@dimen/btnSize"
@@ -198,6 +253,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="-"
                 android:textSize="@dimen/btnSize"
@@ -217,6 +276,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn1"
                 android:textSize="@dimen/btnSize"
@@ -228,6 +291,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn2"
                 android:textSize="@dimen/btnSize"
@@ -239,6 +306,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn3"
                 android:textSize="@dimen/btnSize"
@@ -250,6 +321,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="+"
                 android:textSize="@dimen/btnSize"
@@ -270,6 +345,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="@string/btn0"
                 android:textSize="@dimen/btnSize"
@@ -281,6 +360,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="."
                 android:textSize="@dimen/btnSize"
@@ -293,6 +376,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_light_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="+/-"
                 android:textSize="@dimen/btnSwitch"
@@ -304,6 +391,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+<<<<<<< HEAD
+=======
+                android:background="@drawable/button_dark_selector"
+>>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
                 android:onClick="buttonClick"
                 android:text="="
                 android:textSize="@dimen/btnSize"
