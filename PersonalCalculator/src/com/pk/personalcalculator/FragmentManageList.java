@@ -112,9 +112,15 @@ public class FragmentManageList extends Fragment
 			Title.setText(entry);
 			
 			if (entry.equals("Themes"))
+			{
 				Description.setText(res.getString(R.string.themes_description));
+				Image.setImageResource(R.drawable.themes_icon);
+			}
 			else if (entry.equals("Lockdown"))
+			{
 				Description.setText(res.getString(R.string.lockdown_description));
+				Image.setImageResource(R.drawable.lockdown_icon);
+			}
 			else if (entry.equals("Widget"))
 				Description.setText(res.getString(R.string.widget_description));
 			else if (entry.equals("Pop Up"))
