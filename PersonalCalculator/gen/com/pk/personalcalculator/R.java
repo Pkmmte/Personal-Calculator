@@ -21,22 +21,23 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int black=0x7f050004;
         public static final int cyan=0x7f050000;
         public static final int cyan2=0x7f050001;
         public static final int cyan3=0x7f050002;
-        public static final int divider=0x7f050006;
-        public static final int gray_dark=0x7f050005;
-        public static final int gray_light=0x7f050004;
-        public static final int holo_blue_bright=0x7f050010;
-        public static final int holo_blue_dark=0x7f050008;
-        public static final int holo_blue_light=0x7f050007;
-        public static final int holo_green_dark=0x7f05000a;
-        public static final int holo_green_light=0x7f050009;
-        public static final int holo_orange_dark=0x7f05000f;
-        public static final int holo_orange_light=0x7f05000e;
-        public static final int holo_purple=0x7f05000d;
-        public static final int holo_red_dark=0x7f05000c;
-        public static final int holo_red_light=0x7f05000b;
+        public static final int divider=0x7f050007;
+        public static final int gray_dark=0x7f050006;
+        public static final int gray_light=0x7f050005;
+        public static final int holo_blue_bright=0x7f050011;
+        public static final int holo_blue_dark=0x7f050009;
+        public static final int holo_blue_light=0x7f050008;
+        public static final int holo_green_dark=0x7f05000b;
+        public static final int holo_green_light=0x7f05000a;
+        public static final int holo_orange_dark=0x7f050010;
+        public static final int holo_orange_light=0x7f05000f;
+        public static final int holo_purple=0x7f05000e;
+        public static final int holo_red_dark=0x7f05000d;
+        public static final int holo_red_light=0x7f05000c;
         public static final int white=0x7f050003;
     }
     public static final class dimen {
@@ -55,20 +56,23 @@ public final class R {
     }
     public static final class drawable {
         public static final int action_previous=0x7f020000;
-        public static final int border_selector=0x7f020001;
-        public static final int button_blue_selector=0x7f020002;
-        public static final int button_green_selector=0x7f020003;
-        public static final int button_light_selector=0x7f020004;
-        public static final int checkbox_off=0x7f020005;
-        public static final int checkbox_on=0x7f020006;
-        public static final int collapse=0x7f020007;
-        public static final int expand=0x7f020008;
-        public static final int expander=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int item_selector=0x7f02000b;
-        public static final int overflow=0x7f02000c;
-        public static final int setting=0x7f02000d;
-        public static final int settings=0x7f02000e;
+        public static final int app_icon=0x7f020001;
+        public static final int border_light_selector=0x7f020002;
+        public static final int border_selector=0x7f020003;
+        public static final int button_blue_selector=0x7f020004;
+        public static final int button_dark_selector=0x7f020005;
+        public static final int button_green_selector=0x7f020006;
+        public static final int button_light_selector=0x7f020007;
+        public static final int checkbox_off=0x7f020008;
+        public static final int checkbox_on=0x7f020009;
+        public static final int collapse=0x7f02000a;
+        public static final int expand=0x7f02000b;
+        public static final int expander=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int item_selector=0x7f02000e;
+        public static final int overflow=0x7f02000f;
+        public static final int setting=0x7f020010;
+        public static final int settings=0x7f020011;
     }
     public static final class id {
         public static final int Advanced=0x7f0a003d;
