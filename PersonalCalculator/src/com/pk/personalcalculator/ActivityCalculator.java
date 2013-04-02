@@ -1,5 +1,9 @@
 package com.pk.personalcalculator;
 
+import org.javia.arity.Complex;
+import org.javia.arity.Symbols;
+import org.javia.arity.SyntaxException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,10 +20,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import org.javia.arity.Complex;
-import org.javia.arity.Symbols;
-import org.javia.arity.SyntaxException;
 
 public class ActivityCalculator extends Activity
 {
@@ -81,6 +81,15 @@ public class ActivityCalculator extends Activity
 		initializeUI();
 		initializeSigns();
 		//lockdown();
+	}
+	
+	@Override
+	protected void onRestart()
+	{
+		super.onRestart();
+		
+		selectedTheme = prefs.getInt("Theme", 0);
+		setCalculatorTheme(selectedTheme);
 	}
 	
 	// Create ActionBar menu options
@@ -157,22 +166,13 @@ public class ActivityCalculator extends Activity
 		
 		setCalculatorTheme(selectedTheme);
 	}
-
 	
 	// Lock down the system
 	public void lockdown()
 	{
 		View disableStatusBar = new View(ActivityCalculator.this);
 		
-		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50,
-		// This allows the view to be displayed over the status bar
-		WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-		// this is to keep button presses going to the background window
-		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-		// this is to enable the notification to receive touch events
-		WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
-		// Draws over status bar
-		WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
+		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
 		
 		handleParams.gravity = Gravity.TOP;
 		getWindow().addContentView(disableStatusBar, handleParams);
@@ -181,10 +181,20 @@ public class ActivityCalculator extends Activity
 	// Set calculator theme
 	public void setCalculatorTheme(int theme)
 	{
-		if (theme == 1)
+		if (theme == 0)
 		{
-			// Google Now theme
-			textInput.setTextSize(R.dimen.theme2_input);
+			// Default Theme
+			
+		}
+		else if (theme == 1)
+		{
+			// Default Dark Theme
+			
+		}
+		else if (theme == 2)
+		{
+			// Google Now Theme
+			textInput.setTextSize(35);
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
@@ -223,28 +233,30 @@ public class ActivityCalculator extends Activity
 		}
 		
 	}
-
-//Obtains the string resources for use with buttonClick
-public void initializeSigns()
-{
-	plusSign = getResources().getString(R.string.plus);
-	minusSign = getResources().getString(R.string.minus);
-	multiplySign = getResources().getString(R.string.multiply);
-	divideSign = getResources().getString(R.string.divide);
-	leftParSign = getResources().getString(R.string.leftPar);
-	rightParSign = getResources().getString(R.string.rightPar);
-}
-
-public boolean isASign(Character c){
-	if (c.toString().equals(plusSign) || c.toString().equals(minusSign)
-	|| c.toString().equals(multiplySign) || c.toString().equals(divideSign))
+	
+	// Obtains the string resources for use with buttonClick
+	public void initializeSigns()
 	{
-		return true;
-	}else{
-		return false;
+		plusSign = getResources().getString(R.string.plus);
+		minusSign = getResources().getString(R.string.minus);
+		multiplySign = getResources().getString(R.string.multiply);
+		divideSign = getResources().getString(R.string.divide);
+		leftParSign = getResources().getString(R.string.leftPar);
+		rightParSign = getResources().getString(R.string.rightPar);
 	}
 	
-}
+	public boolean isASign(Character c)
+	{
+		if (c.toString().equals(plusSign) || c.toString().equals(minusSign) || c.toString().equals(multiplySign) || c.toString().equals(divideSign))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
 	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
@@ -293,12 +305,13 @@ public boolean isASign(Character c){
 				break;
 			case R.id.btnPlus:
 			{
-				if (!(textInput.getText().toString().isEmpty())){
+				if (!(textInput.getText().toString().isEmpty()))
+				{
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
 						textString.deleteCharAt(textString.length() - 1);
-					}					
+					}
 					textString.append(plusSign);
 					textInput.setText(textString.toString());
 					
@@ -307,7 +320,8 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnMinus:
 			{
-				if (!(textInput.getText().toString().isEmpty())){
+				if (!(textInput.getText().toString().isEmpty()))
+				{
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -321,7 +335,8 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnMultiply:
 			{
-				if(!(textInput.getText().toString().isEmpty())){
+				if (!(textInput.getText().toString().isEmpty()))
+				{
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -334,7 +349,8 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnDivide:
 			{
-				if (!(textInput.getText().toString().isEmpty())){
+				if (!(textInput.getText().toString().isEmpty()))
+				{
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
@@ -345,12 +361,13 @@ public boolean isASign(Character c){
 				}
 				break;
 			}
-			case R.id.btnLeftP:{
-				Character lastChar = null; 
+			case R.id.btnLeftP:
+			{
+				Character lastChar = null;
 				if (!(textString.toString().isEmpty()))
 				{
 					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-				
+					
 					if (isASign(lastChar))
 					{
 						textString.append(getResources().getString(R.string.leftPar));
@@ -392,14 +409,18 @@ public boolean isASign(Character c){
 					textInput.setText(textString.toString());
 				}
 				break;
-			case R.id.btnEqual: {
+			case R.id.btnEqual:
+			{
 				
 				String solutionText;
-				try{
+				try
+				{
 					solutionText = solve(textString.toString()); // Has some function at the moment;
 					textString.setLength(0);
 					textString.append(solutionText);
-				}catch(SyntaxException e){
+				}
+				catch (SyntaxException e)
+				{
 					textString.setLength(0);
 					textString.append("Syntax Error: try again.");
 				}
@@ -411,11 +432,12 @@ public boolean isASign(Character c){
 			case R.id.btnSwitch: // Code for the additive inverse of a number goes
 									// here.;
 				break;
-			case R.id.btnDot:{
-				if (!textString.toString().isEmpty()){
+			case R.id.btnDot:
+			{
+				if (!textString.toString().isEmpty())
+				{
 					int subStart;
-					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1
-					&& textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
+					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1 && textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
 					{
 						subStart = 0;
 					}
@@ -443,7 +465,8 @@ public boolean isASign(Character c){
 		Symbols eSymbols = new Symbols();
 		
 		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-		if (isASign(lastChar)){
+		if (isASign(lastChar))
+		{
 			textString.deleteCharAt(textString.length() - 1);
 			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 			equation = textString.toString();
@@ -461,7 +484,6 @@ public boolean isASign(Character c){
 		
 		String stringSolution = "" + solution;
 		return stringSolution;
-		
 		
 		// Code for solve goes here
 	}
