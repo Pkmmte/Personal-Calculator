@@ -84,6 +84,14 @@ public class ActivityMain extends FragmentActivity
 	}
 	
 	@Override
+	protected void onRestart()
+	{
+		super.onRestart();
+		
+		finish();
+	}
+	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
 		switch (item.getItemId())
