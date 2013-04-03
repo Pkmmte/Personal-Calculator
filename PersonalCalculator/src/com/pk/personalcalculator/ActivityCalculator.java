@@ -21,10 +21,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.javia.arity.Complex;
-import org.javia.arity.Symbols;
-import org.javia.arity.SyntaxException;
-
 public class ActivityCalculator extends Activity
 {
 	private SharedPreferences prefs;
@@ -186,12 +182,12 @@ public class ActivityCalculator extends Activity
 	// Set calculator theme
 	public void setCalculatorTheme(int theme)
 	{
-<<<<<<< HEAD
+
 		if (theme == 1)
 		{
 			// Google Now theme
 			textInput.setTextSize(R.dimen.theme2_input);
-=======
+		}
 		if (theme == 0)
 		{
 			// Default Theme
@@ -206,7 +202,7 @@ public class ActivityCalculator extends Activity
 		{
 			// Google Now Theme
 			textInput.setTextSize(35);
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
@@ -245,30 +241,7 @@ public class ActivityCalculator extends Activity
 		}
 		
 	}
-<<<<<<< HEAD
 
-//Obtains the string resources for use with buttonClick
-public void initializeSigns()
-{
-	plusSign = getResources().getString(R.string.plus);
-	minusSign = getResources().getString(R.string.minus);
-	multiplySign = getResources().getString(R.string.multiply);
-	divideSign = getResources().getString(R.string.divide);
-	leftParSign = getResources().getString(R.string.leftPar);
-	rightParSign = getResources().getString(R.string.rightPar);
-}
-
-public boolean isASign(Character c){
-	if (c.toString().equals(plusSign) || c.toString().equals(minusSign)
-	|| c.toString().equals(multiplySign) || c.toString().equals(divideSign))
-	{
-		return true;
-	}else{
-		return false;
-	}
-	
-}
-=======
 	
 	// Obtains the string resources for use with buttonClick
 	public void initializeSigns()
@@ -293,7 +266,6 @@ public boolean isASign(Character c){
 		}
 		
 	}
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
@@ -342,21 +314,18 @@ public boolean isASign(Character c){
 				break;
 			case R.id.btnPlus:
 			{
-<<<<<<< HEAD
 				if (!(textInput.getText().toString().isEmpty())){
-=======
 				if (!(textInput.getText().toString().isEmpty()))
 				{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 					{
 						textString.deleteCharAt(textString.length() - 1);
-<<<<<<< HEAD
+
 					}					
-=======
+
 					}
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+
 					textString.append(plusSign);
 					textInput.setText(textString.toString());
 					
@@ -365,67 +334,63 @@ public boolean isASign(Character c){
 			}
 			case R.id.btnMinus:
 			{
-<<<<<<< HEAD
+
 				if (!(textInput.getText().toString().isEmpty())){
-=======
-				if (!(textInput.getText().toString().isEmpty()))
-				{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
-					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+
+					if (!(textInput.getText().toString().isEmpty()))
 					{
-						textString.deleteCharAt(textString.length() - 1);
+
+						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+						{
+							textString.deleteCharAt(textString.length() - 1);
+						}
+						textString.append(minusSign);
+						textInput.setText(textString.toString());
 					}
-					textString.append(minusSign);
-					textInput.setText(textString.toString());
 					
 				}
 				break;
 			}
 			case R.id.btnMultiply:
 			{
-<<<<<<< HEAD
+
 				if(!(textInput.getText().toString().isEmpty())){
-=======
-				if (!(textInput.getText().toString().isEmpty()))
-				{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
-					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+
+					if (!(textInput.getText().toString().isEmpty()))
 					{
-						textString.deleteCharAt(textString.length() - 1);
+
+						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+						{
+							textString.deleteCharAt(textString.length() - 1);
+						}
+						textString.append(multiplySign);
+						textInput.setText(textString.toString());
 					}
-					textString.append(multiplySign);
-					textInput.setText(textString.toString());
 				}
 				break;
 			}
 			case R.id.btnDivide:
 			{
-<<<<<<< HEAD
+
 				if (!(textInput.getText().toString().isEmpty())){
-=======
-				if (!(textInput.getText().toString().isEmpty()))
-				{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
-					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+
+					if (!(textInput.getText().toString().isEmpty()))
 					{
-						textString.deleteCharAt(textString.length() - 1);
+
+						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+						{
+							textString.deleteCharAt(textString.length() - 1);
+						}
+						textString.append(divideSign);
+						textInput.setText(textString.toString());
 					}
-					textString.append(divideSign);
-					textInput.setText(textString.toString());
 				}
 				break;
 			}
-<<<<<<< HEAD
-			case R.id.btnLeftP:{
-				Character lastChar = null; 
-				if (!(textString.toString().isEmpty()))
-				{
-					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-				
-=======
+			
 			case R.id.btnLeftP:
 			{
 				Character lastChar = null;
@@ -433,7 +398,6 @@ public boolean isASign(Character c){
 				{
 					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					if (isASign(lastChar))
 					{
 						textString.append(getResources().getString(R.string.leftPar));
@@ -475,16 +439,6 @@ public boolean isASign(Character c){
 					textInput.setText(textString.toString());
 				}
 				break;
-<<<<<<< HEAD
-			case R.id.btnEqual: {
-				
-				String solutionText;
-				try{
-					solutionText = solve(textString.toString()); // Has some function at the moment;
-					textString.setLength(0);
-					textString.append(solutionText);
-				}catch(SyntaxException e){
-=======
 			case R.id.btnEqual:
 			{
 				
@@ -497,7 +451,6 @@ public boolean isASign(Character c){
 				}
 				catch (SyntaxException e)
 				{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 					textString.setLength(0);
 					textString.append("Syntax Error: try again.");
 				}
@@ -509,20 +462,13 @@ public boolean isASign(Character c){
 			case R.id.btnSwitch: // Code for the additive inverse of a number goes
 									// here.;
 				break;
-<<<<<<< HEAD
-			case R.id.btnDot:{
-				if (!textString.toString().isEmpty()){
-					int subStart;
-					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1
-					&& textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
-=======
 			case R.id.btnDot:
 			{
 				if (!textString.toString().isEmpty())
 				{
 					int subStart;
 					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1 && textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+
 					{
 						subStart = 0;
 					}
@@ -550,12 +496,10 @@ public boolean isASign(Character c){
 		Symbols eSymbols = new Symbols();
 		
 		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-<<<<<<< HEAD
-		if (isASign(lastChar)){
-=======
+
 		if (isASign(lastChar))
 		{
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+
 			textString.deleteCharAt(textString.length() - 1);
 			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 			equation = textString.toString();
@@ -573,11 +517,6 @@ public boolean isASign(Character c){
 		
 		String stringSolution = "" + solution;
 		return stringSolution;
-		
-<<<<<<< HEAD
-		
-=======
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 		// Code for solve goes here
 	}
 }
