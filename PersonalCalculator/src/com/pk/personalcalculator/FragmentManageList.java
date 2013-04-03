@@ -122,9 +122,15 @@ public class FragmentManageList extends Fragment
 				Image.setImageResource(R.drawable.lockdown_icon);
 			}
 			else if (entry.equals("Widget"))
+			{
 				Description.setText(res.getString(R.string.widget_description));
+				Image.setImageResource(R.drawable.widget_icon);
+			}
 			else if (entry.equals("Pop Up"))
+			{
 				Description.setText(res.getString(R.string.popup_description));
+				Image.setImageResource(R.drawable.popup_icon);
+			}
 			else if (entry.equals("Graphing"))
 				Description.setText(res.getString(R.string.graphing_description));
 			

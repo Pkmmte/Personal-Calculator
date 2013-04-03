@@ -73,9 +73,11 @@ public final class R {
         public static final int item_selector=0x7f02000e;
         public static final int lockdown_icon=0x7f02000f;
         public static final int overflow=0x7f020010;
-        public static final int setting=0x7f020011;
-        public static final int settings=0x7f020012;
-        public static final int themes_icon=0x7f020013;
+        public static final int popup_icon=0x7f020011;
+        public static final int setting=0x7f020012;
+        public static final int settings=0x7f020013;
+        public static final int themes_icon=0x7f020014;
+        public static final int widget_icon=0x7f020015;
     }
     public static final class id {
         public static final int Advanced=0x7f0a003d;
