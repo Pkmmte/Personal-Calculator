@@ -6,7 +6,7 @@
             android:shape="rectangle">
             <stroke
                 android:width="2dip"
-                android:color="@color/holo_blue_light" />
+                android:color="@color/white" />
             
             <gradient
                 android:centerColor="@color/gray_dark"
@@ -20,7 +20,7 @@
             android:shape="rectangle">
             <stroke
                 android:width="2dip"
-                android:color="@color/holo_blue_light" />
+                android:color="@color/white" />
             
             <gradient
                 android:centerColor="@color/gray_dark"
@@ -33,7 +33,7 @@
             android:shape="rectangle">
             <stroke
                 android:width="2dip"
-                android:color="@color/holo_blue_dark" />
+                android:color="@color/white" />
             
             <gradient
                 android:centerColor="@color/gray_light"

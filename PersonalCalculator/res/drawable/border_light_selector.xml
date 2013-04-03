@@ -32,7 +32,7 @@
             android:shape="rectangle">
             <stroke
                 android:width="2dip"
-                android:color="@color/black" />
+                android:color="@color/gray_darker" />
 
             <gradient
                 android:centerColor="@color/gray_dark"
