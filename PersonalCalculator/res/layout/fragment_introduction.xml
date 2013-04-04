@@ -87,7 +87,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:background="@color/cyan3" />
+                android:background="@color/transparent" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -142,7 +142,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="@string/plugin_description" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -256,7 +255,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:background="@color/cyan3" />
+                android:background="@color/transparent" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -300,7 +299,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-<<<<<<< HEAD
                 android:layout_height="wrap_content"
                 android:layout_weight="1" >
 
@@ -313,11 +311,6 @@
                     android:layout_marginLeft="25dp"
                     android:contentDescription="@string/PlaceHolder_VALUE"
                     android:src="@drawable/themes_icon" />
-=======
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal" >
->>>>>>> c7837c87b5db05cc520911e36f3894d44e9f7103
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -326,7 +319,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="@string/settings_description" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -345,10 +337,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
-<<<<<<< HEAD
-                    android:contentDescription="@string/PlaceHolder_VALUE"
-                    android:src="@drawable/lockdown_icon" />
-=======
                     android:layout_weight="1"
                     android:background="@drawable/border_selector" >
 
@@ -386,7 +374,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 android:orientation="vertical" >
->>>>>>> c7837c87b5db05cc520911e36f3894d44e9f7103
 
                 <View
                     android:layout_width="1dp"
@@ -445,7 +432,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:background="@color/cyan3" />
+                android:background="@color/transparent" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -499,7 +486,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:text="@string/settings_description" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -613,7 +599,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:background="@color/cyan3" />
+                android:background="@color/transparent" />
 
             <Button
                 android:layout_width="wrap_content"
