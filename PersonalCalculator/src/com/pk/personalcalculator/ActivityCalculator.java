@@ -300,11 +300,8 @@ public class ActivityCalculator extends Activity
 		{
 			// Google Now Theme
 			textInput.setTextSize(35);
-<<<<<<< HEAD
-=======
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
->>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
 
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
