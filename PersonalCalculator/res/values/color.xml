@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="cyan">#8833B5E5</color>
-    <color name="cyan2">#CC33B5E5</color>
-    <color name="cyan3">#00000000</color>
+    <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+<<<<<<< HEAD
+=======
+    <color name="black_light">#FF2d2d2d</color>
+    <color name="black_lighter">#FF595959</color>
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
     <color name="gray_light">#55AAAAAA</color>
     <color name="gray_dark">#99AAAAAA</color>
     <color name="gray_darker">#99333333</color>
     <color name="divider">#FFC9C0C9</color>
     <color name="holo_blue_light">#ff33b5e5</color>
     <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_blue_darker">#ff07547B</color>
     <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_green_dark">#ff669900</color>
     <color name="holo_red_light">#ffff4444</color>

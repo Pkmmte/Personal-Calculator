@@ -7,10 +7,11 @@
     tools:ignore="NestedWeights" >
 
     <RelativeLayout
+        android:id="@+id/inputContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1"
+        android:background="@color/transparent" >
 
         <Button
             android:id="@+id/btnDelete"
@@ -19,11 +20,16 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+            android:background="@drawable/button_hololight_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
             android:onClick="buttonClick"
-            android:text="DEL" />
+            android:text="DEL"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Input"
@@ -31,13 +37,16 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:layout_marginRight="10dp"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+            android:layout_margin="10dp"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
             android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
             android:gravity="right|center_vertical"
-            android:inputType="numberDecimal"
             android:maxLines="1"
             android:text=""
             android:textSize="@dimen/text_view" />
@@ -58,9 +67,9 @@
             android:id="@+id/btnExpand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_light_selector"
+            android:background="@drawable/border_dark_selector"
             android:contentDescription="@string/PlaceHolder_VALUE"
-            android:src="@drawable/expand"
+            android:src="@drawable/expand_light"
             android:text="v" />
 
         <LinearLayout
@@ -75,11 +84,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="Clear"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <Button
@@ -89,11 +103,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="("
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize" />
 
             <Button
@@ -103,11 +122,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text=")"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize" />
 
             <Button
@@ -117,11 +141,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="÷"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize" />
         </LinearLayout>
 
@@ -137,11 +166,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn7"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="sans" />
 
@@ -152,11 +186,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn8"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="serif" />
 
@@ -167,11 +206,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn9"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -182,11 +226,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="×"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
         </LinearLayout>
@@ -203,11 +252,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn4"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -218,11 +272,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn5"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -233,11 +292,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -248,11 +312,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="-"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
         </LinearLayout>
@@ -269,11 +338,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn1"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -284,11 +358,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn2"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -299,11 +378,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn3"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -314,11 +398,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="+"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
         </LinearLayout>
@@ -335,11 +424,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="@string/btn0"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -350,11 +444,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="."
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:typeface="monospace" />
 
@@ -366,11 +465,16 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="+/-"
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSwitch"
                 android:typeface="monospace" />
 
@@ -381,11 +485,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
                 android:onClick="buttonClick"
                 android:text="="
+                android:textColor="@color/black"
                 android:textSize="@dimen/btnSize"
                 android:textStyle="bold"
                 android:typeface="monospace" />

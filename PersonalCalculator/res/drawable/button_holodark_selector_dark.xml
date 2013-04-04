@@ -7,11 +7,12 @@
             <stroke
                 android:width="2dip"
                 android:color="@color/white" />
-
+            
             <gradient
-                android:centerColor="@color/holo_blue_light"
-                android:endColor="@color/holo_blue_light"
-                android:startColor="@color/holo_blue_light" />
+                android:centerColor="@color/holo_blue_darker"
+                android:endColor="@color/holo_blue_darker"
+                android:startColor="@color/holo_blue_darker" />
+
         </shape>
     </item>
     <item android:state_pressed="true">
@@ -20,11 +21,11 @@
             <stroke
                 android:width="2dip"
                 android:color="@color/white" />
-
+            
             <gradient
-                android:centerColor="@color/holo_blue_light"
-                android:endColor="@color/holo_blue_light"
-                android:startColor="@color/holo_blue_light" />
+                android:centerColor="@color/holo_blue_darker"
+                android:endColor="@color/holo_blue_darker"
+                android:startColor="@color/holo_blue_darker" />
         </shape>
     </item>
     <item android:state_pressed="false">
@@ -32,16 +33,13 @@
             android:shape="rectangle">
             <stroke
                 android:width="2dip"
-<<<<<<< HEAD
-                android:color="@color/gray_darker" />
-=======
-                android:color="@color/white" />
->>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
-
+                android:color="@color/black" />
+            
             <gradient
-                android:centerColor="@color/gray_dark"
-                android:endColor="@color/gray_dark"
-                android:startColor="@color/gray_dark" />
+                android:centerColor="@color/black_light"
+                android:endColor="@color/black_light"
+                android:startColor="@color/black_light" />
+
         </shape>
     </item>
 </selector>

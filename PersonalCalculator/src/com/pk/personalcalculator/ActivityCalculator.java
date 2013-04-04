@@ -19,6 +19,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ActivityCalculator extends Activity
@@ -54,8 +55,9 @@ public class ActivityCalculator extends Activity
 	Button btnDot;
 	Button btnSwitch;
 	
-	// The text view form
+	// The text view form and container
 	TextView textInput;
+	RelativeLayout inputContainer;
 	
 	//String builder to build the equation
 	StringBuilder textString = new StringBuilder();
@@ -161,6 +163,7 @@ public class ActivityCalculator extends Activity
 		btnDot = (Button) findViewById(R.id.btnDot);
 		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		textInput = (TextView) findViewById(R.id.Input);
+		inputContainer = (RelativeLayout) findViewById(R.id.inputContainer);
 		
 		textInput.setText("");
 		
@@ -190,23 +193,122 @@ public class ActivityCalculator extends Activity
 		}
 		if (theme == 0)
 		{
-			// Default Theme
+			// Default Light Theme
+			textInput.setTextColor(getResources().getColor(R.color.black_light));
+			inputContainer.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
+			btnExpand.setBackgroundResource(R.drawable.border_light_selector);
+			btnDelete.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnEqual.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnClear.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnLeftP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnRightP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnDivide.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnMultiply.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnMinus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnPlus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
+			btnDot.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btnSwitch.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn0.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn1.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn2.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn3.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn4.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn5.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn6.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn7.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn8.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			btn9.setBackgroundResource(R.drawable.button_hololight_selector_light);
+			
+			btnExpand.setImageResource(R.drawable.expand);
+			btnDelete.setTextColor(getResources().getColor(R.color.black));
+			btnEqual.setTextColor(getResources().getColor(R.color.black));
+			btnClear.setTextColor(getResources().getColor(R.color.black));
+			btnLeftP.setTextColor(getResources().getColor(R.color.black));
+			btnRightP.setTextColor(getResources().getColor(R.color.black));
+			btnDivide.setTextColor(getResources().getColor(R.color.black));
+			btnMultiply.setTextColor(getResources().getColor(R.color.black));
+			btnMinus.setTextColor(getResources().getColor(R.color.black));
+			btnPlus.setTextColor(getResources().getColor(R.color.black));
+			btnDot.setTextColor(getResources().getColor(R.color.black));
+			btnSwitch.setTextColor(getResources().getColor(R.color.black));
+			btn0.setTextColor(getResources().getColor(R.color.black));
+			btn1.setTextColor(getResources().getColor(R.color.black));
+			btn2.setTextColor(getResources().getColor(R.color.black));
+			btn3.setTextColor(getResources().getColor(R.color.black));
+			btn4.setTextColor(getResources().getColor(R.color.black));
+			btn5.setTextColor(getResources().getColor(R.color.black));
+			btn6.setTextColor(getResources().getColor(R.color.black));
+			btn7.setTextColor(getResources().getColor(R.color.black));
+			btn8.setTextColor(getResources().getColor(R.color.black));
+			btn9.setTextColor(getResources().getColor(R.color.black));
 		}
 		else if (theme == 1)
 		{
 			// Default Dark Theme
+			textInput.setTextColor(getResources().getColor(R.color.white));
+			inputContainer.setBackgroundColor(getResources().getColor(R.color.black));
+			
+			btnExpand.setBackgroundResource(R.drawable.border_dark_selector);
+			btnDelete.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnEqual.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnClear.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnLeftP.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnRightP.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnDivide.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnMultiply.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnMinus.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnPlus.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnSwitch.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnDot.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn0.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn1.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn2.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn3.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn4.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn5.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn6.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn7.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn8.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btn9.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			
+			btnExpand.setImageResource(R.drawable.expand_light);
+			btnDelete.setTextColor(getResources().getColor(R.color.white));
+			btnEqual.setTextColor(getResources().getColor(R.color.white));
+			btnSwitch.setTextColor(getResources().getColor(R.color.white));
+			btnClear.setTextColor(getResources().getColor(R.color.white));
+			btnLeftP.setTextColor(getResources().getColor(R.color.white));
+			btnRightP.setTextColor(getResources().getColor(R.color.white));
+			btnDivide.setTextColor(getResources().getColor(R.color.white));
+			btnMultiply.setTextColor(getResources().getColor(R.color.white));
+			btnMinus.setTextColor(getResources().getColor(R.color.white));
+			btnPlus.setTextColor(getResources().getColor(R.color.white));
+			btnDot.setTextColor(getResources().getColor(R.color.white));
+			btn0.setTextColor(getResources().getColor(R.color.white));
+			btn1.setTextColor(getResources().getColor(R.color.white));
+			btn2.setTextColor(getResources().getColor(R.color.white));
+			btn3.setTextColor(getResources().getColor(R.color.white));
+			btn4.setTextColor(getResources().getColor(R.color.white));
+			btn5.setTextColor(getResources().getColor(R.color.white));
+			btn6.setTextColor(getResources().getColor(R.color.white));
+			btn7.setTextColor(getResources().getColor(R.color.white));
+			btn8.setTextColor(getResources().getColor(R.color.white));
+			btn9.setTextColor(getResources().getColor(R.color.white));
 			
 		}
 		else if (theme == 2)
 		{
 			// Google Now Theme
 			textInput.setTextSize(35);
+<<<<<<< HEAD
+=======
+			textInput.setTextColor(getResources().getColor(R.color.black_light));
+			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
+>>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
 
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
-			btnSwitch.setBackgroundResource(R.drawable.item_selector);
 			btnClear.setBackgroundResource(R.drawable.item_selector);
 			btnLeftP.setBackgroundResource(R.drawable.item_selector);
 			btnRightP.setBackgroundResource(R.drawable.item_selector);
@@ -215,6 +317,7 @@ public class ActivityCalculator extends Activity
 			btnMinus.setBackgroundResource(R.drawable.item_selector);
 			btnPlus.setBackgroundResource(R.drawable.item_selector);
 			btnDot.setBackgroundResource(R.drawable.item_selector);
+			btnSwitch.setBackgroundResource(R.drawable.item_selector);
 			btn0.setBackgroundResource(R.drawable.item_selector);
 			btn1.setBackgroundResource(R.drawable.item_selector);
 			btn2.setBackgroundResource(R.drawable.item_selector);
@@ -225,6 +328,29 @@ public class ActivityCalculator extends Activity
 			btn7.setBackgroundResource(R.drawable.item_selector);
 			btn8.setBackgroundResource(R.drawable.item_selector);
 			btn9.setBackgroundResource(R.drawable.item_selector);
+			
+			btnExpand.setImageResource(R.drawable.expand);
+			btnDelete.setTextColor(getResources().getColor(R.color.black));
+			btnEqual.setTextColor(getResources().getColor(R.color.black));
+			btnClear.setTextColor(getResources().getColor(R.color.black));
+			btnLeftP.setTextColor(getResources().getColor(R.color.black));
+			btnRightP.setTextColor(getResources().getColor(R.color.black));
+			btnDivide.setTextColor(getResources().getColor(R.color.black));
+			btnMultiply.setTextColor(getResources().getColor(R.color.black));
+			btnMinus.setTextColor(getResources().getColor(R.color.black));
+			btnPlus.setTextColor(getResources().getColor(R.color.black));
+			btnDot.setTextColor(getResources().getColor(R.color.black));
+			btnSwitch.setTextColor(getResources().getColor(R.color.black));
+			btn0.setTextColor(getResources().getColor(R.color.black));
+			btn1.setTextColor(getResources().getColor(R.color.black));
+			btn2.setTextColor(getResources().getColor(R.color.black));
+			btn3.setTextColor(getResources().getColor(R.color.black));
+			btn4.setTextColor(getResources().getColor(R.color.black));
+			btn5.setTextColor(getResources().getColor(R.color.black));
+			btn6.setTextColor(getResources().getColor(R.color.black));
+			btn7.setTextColor(getResources().getColor(R.color.black));
+			btn8.setTextColor(getResources().getColor(R.color.black));
+			btn9.setTextColor(getResources().getColor(R.color.black));
 			
 			btnClear.setTypeface(robotoBoldCondensed);
 			btn0.setTypeface(robotoThin);
