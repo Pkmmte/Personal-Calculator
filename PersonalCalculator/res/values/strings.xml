@@ -45,40 +45,10 @@
     <string name="multiply">\u00d7</string>
     <string name="leftPar">\u0028</string>
     <string name="rightPar">\u0029</string>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <string name="theme1_description">Default Holo Theme\n\nSimplistic yet visually appealing. This is the Android\'s default theme currently. </string>
-<<<<<<< HEAD
-    <string name="theme2_description">Google Now Theme\n\nIt doesn\'t get simpler than this. Extremely minimal yet beautiful, this theme was brought to you by Google Now. </string>
-    <string name="theme3_description">Touchwiz Theme\n\nThe exact same look as Samsung\s stock calculator app. </string>
-    <string name="theme4_description">Red Theme\n\nA red version of the default holo theme. </string>
-    <string name="theme5_description">Light Blue Theme\n\nA light blue version of the default holo theme. </string>
-=======
-    <string name="theme2_description">Dark Holo Theme\n\nA dark version of the default holo theme. Simplistic yet visually appealing. This is the Android\'s default theme currently. </string>
-=======
-    <string name="theme1_description">Default Holo Theme\n\nSimplistic yet visually appealing. This is currently Android\'s default theme. </string>
-    <string name="theme2_description">Dark Holo Theme\n\nA dark version of the default holo theme. Simplistic yet visually appealing. This is currently Android\'s default theme. </string>
->>>>>>> d3da11138b0e7be94b77e70289bd1ce11e78cd27
-=======
-    <string name="theme1_description">Default Holo Theme\n\nSimplistic yet visually appealing. This is currently Android\'s default theme. </string>
-    <string name="theme2_description">Dark Holo Theme\n\nA dark version of the default holo theme. Simplistic yet visually appealing. This is currently Android\'s default theme. </string>
->>>>>>> c7837c87b5db05cc520911e36f3894d44e9f7103
-=======
-    <string name="theme1_description">Default Light Holo Theme\n\nSimplistic yet visually appealing. This is currently Android\'s default theme. </string>
-    <string name="theme2_description">Default Dark Holo Theme\n\nA dark version of the default holo theme. Simplistic yet visually appealing. This is currently Android\'s default theme. </string>
->>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
-    <string name="theme3_description">Google Now Theme\n\nIt doesn\'t get simpler than this. Extremely minimal yet beautiful, this theme was brought to you by Google Now. </string>
-    <string name="theme4_description">Touchwiz Theme\n\nThe exact same look as Samsung\s stock calculator app. </string>
-    <string name="theme5_description">iOS Theme\n\nA similar look to the stock calculator on iOS. </string>
->>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
-=======
     <string name="theme1_description">Default Light Holo Theme\n\nSimplistic yet visually appealing. This is currently Android\'s default theme. </string>
     <string name="theme2_description">Default Dark Holo Theme\n\nA dark version of the default holo theme. Simplistic yet visually appealing. This is currently Android\'s default theme. </string>
     <string name="theme3_description">Google Now Theme\n\nIt doesn\'t get simpler than this. Extremely minimal yet beautiful, this theme was brought to you by Google Now. </string>
     <string name="theme4_description">Touchwiz Theme\n\nThe exact same look as Samsung\s stock calculator app. </string>
     <string name="theme5_description">iOS Theme\n\nA similar look to the stock calculator on iOS. </string>
     <string name="ready_description">Choose a calculator theme below.\nYou can change theme in the Manage screen where there are many more to choose from.</string>
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 </resources>

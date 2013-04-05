@@ -22,10 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-<<<<<<< HEAD
-=======
 import android.widget.LinearLayout;
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -68,15 +65,12 @@ public class ActivityCalculator extends Activity
 	// The text view form and container
 	TextView textInput;
 	RelativeLayout inputContainer;
-<<<<<<< HEAD
-=======
 	
 	// Lockdown Stuff
 	LinearLayout infoLockdown;
 	TextView textLock;
 	int Hours;
 	int Minutes;
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 	
 	//String builder to build the equation
 	StringBuilder textString = new StringBuilder();
@@ -228,11 +222,8 @@ public class ActivityCalculator extends Activity
 		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		textInput = (TextView) findViewById(R.id.Input);
 		inputContainer = (RelativeLayout) findViewById(R.id.inputContainer);
-<<<<<<< HEAD
-=======
 		infoLockdown = (LinearLayout) findViewById(R.id.infoLockdown);
 		textLock = (TextView) findViewById(R.id.textLock);
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 		
 		textInput.setText("");
 		
@@ -252,63 +243,14 @@ public class ActivityCalculator extends Activity
 		if (theme == 0)
 		{
 			// Default Light Theme
-<<<<<<< HEAD
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
-			btnExpand.setBackgroundResource(R.drawable.border_light_selector);
-			btnDelete.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnEqual.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnClear.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnLeftP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnRightP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnDivide.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnMultiply.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnMinus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnPlus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnDot.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btnSwitch.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn0.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn1.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn2.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn3.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn4.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn5.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn6.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn7.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn8.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn9.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			
-=======
 			setTheme(R.style.AppTheme);
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.transparent));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
-			btnExpand.setBackgroundResource(R.drawable.border_light_selector);
-			btnDelete.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnEqual.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnClear.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnLeftP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnRightP.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnDivide.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnMultiply.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnMinus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnPlus.setBackgroundResource(R.drawable.button_hololight_selector_dark);
-			btnDot.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btnSwitch.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn0.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn1.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn2.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn3.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn4.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn5.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn6.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn7.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn8.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			btn9.setBackgroundResource(R.drawable.button_hololight_selector_light);
-			
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 			btnExpand.setImageResource(R.drawable.expand);
 			btnDelete.setTextColor(getResources().getColor(R.color.black));
 			btnEqual.setTextColor(getResources().getColor(R.color.black));
@@ -335,26 +277,25 @@ public class ActivityCalculator extends Activity
 		else if (theme == 1)
 		{
 			// Default Dark Theme
-<<<<<<< HEAD
+			
 			textInput.setTextColor(getResources().getColor(R.color.white));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.black));
-=======
+			
 			setTheme(R.style.ActionBar_Dark);
 			textInput.setTextColor(getResources().getColor(R.color.white));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.black));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.black));
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 			
-			btnExpand.setBackgroundResource(R.drawable.border_dark_selector);
-			btnDelete.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnEqual.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnClear.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnLeftP.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnRightP.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnDivide.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnMultiply.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnMinus.setBackgroundResource(R.drawable.button_holodark_selector_dark);
-			btnPlus.setBackgroundResource(R.drawable.button_holodark_selector_dark);
+			btnExpand.setBackgroundResource(R.drawable.border_light_selector);
+			btnDelete.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnEqual.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnClear.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnLeftP.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnRightP.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnDivide.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnMultiply.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnMinus.setBackgroundResource(R.drawable.button_holodark_selector_light);
+			btnPlus.setBackgroundResource(R.drawable.button_holodark_selector_light);
 			btnSwitch.setBackgroundResource(R.drawable.button_holodark_selector_light);
 			btnDot.setBackgroundResource(R.drawable.button_holodark_selector_light);
 			btn0.setBackgroundResource(R.drawable.button_holodark_selector_light);
@@ -397,32 +338,23 @@ public class ActivityCalculator extends Activity
 			// Google Now Theme
 			setTheme(R.style.AppTheme);
 			textInput.setTextSize(35);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+			
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
->>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
-=======
+			
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
->>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
-=======
+			
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
->>>>>>> 785a79ea37b8528e744e37302c6395791546ccea
-=======
+			
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
->>>>>>> 785a79ea37b8528e744e37302c6395791546ccea
-=======
+			
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
->>>>>>> 785a79ea37b8528e744e37302c6395791546ccea
+
 
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
