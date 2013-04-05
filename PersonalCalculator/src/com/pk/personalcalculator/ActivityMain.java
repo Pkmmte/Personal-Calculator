@@ -137,6 +137,10 @@ public class ActivityMain extends FragmentActivity
 	
 	public void onSkipClick(View v)
 	{
+		Editor editor = prefs.edit();
+		editor.putBoolean("First Time", false);
+		editor.commit();
+		
 		Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
 		skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(skipIntent);
@@ -148,6 +152,10 @@ public class ActivityMain extends FragmentActivity
 		
 		if(pageNum == 4)
 		{
+			Editor editor = prefs.edit();
+			editor.putBoolean("First Time", false);
+			editor.commit();
+			
 			Intent skipIntent = new Intent(ActivityMain.this, ActivityCalculator.class);
 			skipIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(skipIntent);
@@ -165,9 +173,6 @@ public class ActivityMain extends FragmentActivity
 	public void setDefaults()
 	{
 		Editor editor = prefs.edit();
-		
-		// This is no longer the first time
-		editor.putBoolean("First Time", false);
 		
 		// Set purchased values. Some are free and some are paid.
 		editor.putBoolean("Purchased_Themes", true);

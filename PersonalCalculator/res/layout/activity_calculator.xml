@@ -6,6 +6,34 @@
     android:orientation="vertical"
     tools:ignore="NestedWeights" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoLockdown"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:background="@color/holo_red_dark_transparent"
+            android:paddingTop="5dp"
+            tools:ignore="UselessParent" >
+
+            <TextView
+                android:id="@+id/textLock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/PlaceHolder_VALUE"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/inputContainer"
         android:layout_width="match_parent"
@@ -21,12 +49,16 @@
             android:layout_alignParentRight="true"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
             android:background="@drawable/button_hololight_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+            android:background="@drawable/button_hololight_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
             android:onClick="buttonClick"
             android:text="DEL"
             android:textColor="@color/black" />
@@ -38,12 +70,16 @@
             android:layout_alignParentTop="true"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:layout_marginRight="10dp"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
             android:layout_margin="10dp"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+            android:layout_margin="10dp"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
             android:layout_toLeftOf="@+id/btnDelete"
             android:ems="10"
             android:gravity="right|center_vertical"
@@ -85,12 +121,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="Clear"
                 android:textColor="@color/black"
@@ -104,12 +144,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="("
                 android:textColor="@color/black"
@@ -123,12 +167,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text=")"
                 android:textColor="@color/black"
@@ -142,12 +190,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="÷"
                 android:textColor="@color/black"
@@ -167,12 +219,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn7"
                 android:textColor="@color/black"
@@ -187,12 +243,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn8"
                 android:textColor="@color/black"
@@ -207,12 +267,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn9"
                 android:textColor="@color/black"
@@ -227,12 +291,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="×"
                 android:textColor="@color/black"
@@ -253,12 +321,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn4"
                 android:textColor="@color/black"
@@ -273,12 +345,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn5"
                 android:textColor="@color/black"
@@ -293,12 +369,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn6"
                 android:textColor="@color/black"
@@ -313,12 +393,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="-"
                 android:textColor="@color/black"
@@ -339,12 +423,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn1"
                 android:textColor="@color/black"
@@ -359,12 +447,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn2"
                 android:textColor="@color/black"
@@ -379,12 +471,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn3"
                 android:textColor="@color/black"
@@ -399,12 +495,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="+"
                 android:textColor="@color/black"
@@ -425,12 +525,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="@string/btn0"
                 android:textColor="@color/black"
@@ -445,12 +549,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="."
                 android:textColor="@color/black"
@@ -466,12 +574,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_light_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_light"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_light"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="+/-"
                 android:textColor="@color/black"
@@ -486,12 +598,16 @@
                 android:layout_weight="1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 android:background="@drawable/button_dark_selector"
 >>>>>>> 203919e2a6f071e2984ec5c16ee4e4e2496044f1
 =======
                 android:background="@drawable/button_holodark_selector_dark"
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:background="@drawable/button_holodark_selector_dark"
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
                 android:onClick="buttonClick"
                 android:text="="
                 android:textColor="@color/black"

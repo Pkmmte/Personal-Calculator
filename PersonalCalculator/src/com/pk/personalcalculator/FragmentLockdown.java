@@ -49,39 +49,42 @@ public class FragmentLockdown extends Fragment
 		else if (Hours > 5)
 			confirmMessage += youCrazy;
 		
-		// Declare & Initialize builder for confirmation dialog
-		Builder confirmDialogBuilder = new AlertDialog.Builder(context);
-		
-		// Set dialog properties
-		confirmDialogBuilder.setTitle("Confirm");
-		confirmDialogBuilder.setMessage(confirmMessage);
-		confirmDialogBuilder.setCancelable(false);
-		
-		// Button functions
-		confirmDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+		if (Hours > 0 || Minutes > 0)
 		{
-			@Override
-			public void onClick(DialogInterface dialog, int id)
+			// Declare & Initialize builder for confirmation dialog
+			Builder confirmDialogBuilder = new AlertDialog.Builder(context);
+			
+			// Set dialog properties
+			confirmDialogBuilder.setTitle("Confirm");
+			confirmDialogBuilder.setMessage(confirmMessage);
+			confirmDialogBuilder.setCancelable(false);
+			
+			// Button functions
+			confirmDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
 			{
-				Intent lockIntent = new Intent(context, ActivityCalculator.class);
-				lockIntent.putExtra("Lockdown", true);
-				lockIntent.putExtra("Hours", Hours);
-				lockIntent.putExtra("Minutes", Minutes);
-		        lockIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				context.startActivity(lockIntent);
-			}
-		});
-		confirmDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int id)
+				@Override
+				public void onClick(DialogInterface dialog, int id)
+				{
+					Intent lockIntent = new Intent(context, ActivityCalculator.class);
+					lockIntent.putExtra("Lockdown", true);
+					lockIntent.putExtra("Hours", Hours);
+					lockIntent.putExtra("Minutes", Minutes);
+					lockIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					context.startActivity(lockIntent);
+				}
+			});
+			confirmDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener()
 			{
-				dialog.cancel();
-			}
-		});
-		
-		// Create & show dialog
-		AlertDialog confirmDialog = confirmDialogBuilder.create();
-		confirmDialog.show();
+				@Override
+				public void onClick(DialogInterface dialog, int id)
+				{
+					dialog.cancel();
+				}
+			});
+			
+			// Create & show dialog
+			AlertDialog confirmDialog = confirmDialogBuilder.create();
+			confirmDialog.show();
+		}
 	}
 }

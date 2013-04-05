@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+<<<<<<< HEAD
     <item android:drawable="@color/cyan" android:state_focused="true"/>
     <item android:drawable="@color/cyan" android:state_pressed="true"/>
+=======
+    <item android:drawable="@color/holo_blue_light" android:state_focused="true"/>
+    <item android:drawable="@color/holo_blue_light" android:state_pressed="true"/>
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
     <item android:drawable="@color/transparent"/>
 
 </selector>

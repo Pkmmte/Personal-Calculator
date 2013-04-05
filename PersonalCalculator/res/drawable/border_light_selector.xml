@@ -33,10 +33,14 @@
             <stroke
                 android:width="2dip"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:color="@color/gray_darker" />
 =======
                 android:color="@color/white" />
 >>>>>>> 12663440873d424926a73076f028a6fc9b3ffffc
+=======
+                android:color="@color/white" />
+>>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
 
             <gradient
                 android:centerColor="@color/gray_dark"
