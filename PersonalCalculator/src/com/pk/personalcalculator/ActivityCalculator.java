@@ -4,6 +4,7 @@ import org.javia.arity.Complex;
 import org.javia.arity.Symbols;
 import org.javia.arity.SyntaxException;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,21 +12,27 @@ import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ActivityCalculator extends Activity
 {
 	private SharedPreferences prefs;
 	private int selectedTheme;
+	ActionBar actionBar;
+	Intent intent;
 	
 	// Fonts used to Google Now theme.
 	Typeface robotoThin;
@@ -59,6 +66,12 @@ public class ActivityCalculator extends Activity
 	TextView textInput;
 	RelativeLayout inputContainer;
 	
+	// Lockdown Stuff
+	LinearLayout infoLockdown;
+	TextView textLock;
+	int Hours;
+	int Minutes;
+	
 	//String builder to build the equation
 	StringBuilder textString = new StringBuilder();
 	
@@ -77,12 +90,25 @@ public class ActivityCalculator extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		intent = getIntent();
+		firstLock();
 		setContentView(R.layout.activity_calculator);
+		
 		prefs = getSharedPreferences("PersonalCalculatorPreferences", 0);
 		selectedTheme = prefs.getInt("Theme", 0);
+		actionBar = getActionBar();
+		
 		initializeUI();
 		initializeSigns();
-		//lockdown();
+		
+		if(intent.hasExtra("Lockdown"))
+		{
+			Hours = intent.getIntExtra("Hours", 0);
+			Minutes = intent.getIntExtra("Minutes", 0);
+			
+			if(intent.getBooleanExtra("Lockdown", false))
+				lockdown();
+		}
 	}
 	
 	@Override
@@ -134,6 +160,38 @@ public class ActivityCalculator extends Activity
 		}
 	}
 	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
+			if(intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+			}
+			else
+				super.onBackPressed();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	/*@Override
+	public void onAttachedToWindow()
+	{
+		// Override home button
+		this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+	    super.onAttachedToWindow();
+	    
+	    if(!(intent.hasExtra("Lockdown")) || !(intent.getBooleanExtra("Lockdown", false)))
+		{
+	    	// If not in lockdown, act like normal
+	    	moveTaskToBack(true);
+		}
+	    else
+	    	Toast.makeText(ActivityCalculator.this, "You can't go home during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+	}*/
+	
 	// Initialize all UI objects and set theme if needed
 	public void initializeUI()
 	{
@@ -164,22 +222,12 @@ public class ActivityCalculator extends Activity
 		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		textInput = (TextView) findViewById(R.id.Input);
 		inputContainer = (RelativeLayout) findViewById(R.id.inputContainer);
+		infoLockdown = (LinearLayout) findViewById(R.id.infoLockdown);
+		textLock = (TextView) findViewById(R.id.textLock);
 		
 		textInput.setText("");
 		
 		setCalculatorTheme(selectedTheme);
-	}
-
-	
-	// Lock down the system
-	public void lockdown()
-	{
-		View disableStatusBar = new View(ActivityCalculator.this);
-		
-		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
-		
-		handleParams.gravity = Gravity.TOP;
-		getWindow().addContentView(disableStatusBar, handleParams);
 	}
 	
 	// Set calculator theme
@@ -188,8 +236,10 @@ public class ActivityCalculator extends Activity
 		if (theme == 0)
 		{
 			// Default Light Theme
+			setTheme(R.style.AppTheme);
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.transparent));
+			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
 			btnExpand.setBackgroundResource(R.drawable.border_light_selector);
 			btnDelete.setBackgroundResource(R.drawable.button_hololight_selector_dark);
@@ -240,8 +290,10 @@ public class ActivityCalculator extends Activity
 		else if (theme == 1)
 		{
 			// Default Dark Theme
+			setTheme(R.style.ActionBar_Dark);
 			textInput.setTextColor(getResources().getColor(R.color.white));
 			inputContainer.setBackgroundColor(getResources().getColor(R.color.black));
+			infoLockdown.setBackgroundColor(getResources().getColor(R.color.black));
 			
 			btnExpand.setBackgroundResource(R.drawable.border_dark_selector);
 			btnDelete.setBackgroundResource(R.drawable.button_holodark_selector_dark);
@@ -293,9 +345,11 @@ public class ActivityCalculator extends Activity
 		else if (theme == 2)
 		{
 			// Google Now Theme
+			setTheme(R.style.AppTheme);
 			textInput.setTextSize(35);
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
+			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
@@ -356,9 +410,37 @@ public class ActivityCalculator extends Activity
 			btn9.setTypeface(robotoThin);
 			textInput.setTypeface(robotoThin);
 		}
-		
 	}
-
+	
+	// I have to do this before setting content
+	public void firstLock()
+	{
+		if(intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+		{
+			// Hide the status bar
+			requestWindowFeature(Window.FEATURE_NO_TITLE);
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		}
+	}
+	
+	// Lock down the system
+	public void lockdown()
+	{
+		// Show lockdown info
+		infoLockdown.setVisibility(View.VISIBLE);
+		
+		// Dim system bar
+		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
+		
+		// Hide system bar
+		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+		
+		// Disable the status bar
+		View disableStatusBar = new View(ActivityCalculator.this);
+		WindowManager.LayoutParams handleParams = new WindowManager.LayoutParams(LayoutParams.MATCH_PARENT, 50, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
+		handleParams.gravity = Gravity.TOP;
+		getWindow().addContentView(disableStatusBar, handleParams);
+	}
 	
 	// Obtains the string resources for use with buttonClick
 	public void initializeSigns()

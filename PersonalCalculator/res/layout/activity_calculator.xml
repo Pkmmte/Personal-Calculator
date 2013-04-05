@@ -6,6 +6,34 @@
     android:orientation="vertical"
     tools:ignore="NestedWeights" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoLockdown"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:background="@color/holo_red_dark_transparent"
+            android:paddingTop="5dp"
+            tools:ignore="UselessParent" >
+
+            <TextView
+                android:id="@+id/textLock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/PlaceHolder_VALUE"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/inputContainer"
         android:layout_width="match_parent"

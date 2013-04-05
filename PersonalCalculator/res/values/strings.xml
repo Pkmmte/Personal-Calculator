@@ -50,4 +50,5 @@
     <string name="theme3_description">Google Now Theme\n\nIt doesn\'t get simpler than this. Extremely minimal yet beautiful, this theme was brought to you by Google Now. </string>
     <string name="theme4_description">Touchwiz Theme\n\nThe exact same look as Samsung\s stock calculator app. </string>
     <string name="theme5_description">iOS Theme\n\nA similar look to the stock calculator on iOS. </string>
+    <string name="ready_description">Choose a calculator theme below.\nYou can change theme in the Manage screen where there are many more to choose from.</string>
 </resources>
