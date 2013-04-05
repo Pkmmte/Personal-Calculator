@@ -401,6 +401,7 @@ public class ActivityCalculator extends Activity
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
@@ -410,6 +411,10 @@ public class ActivityCalculator extends Activity
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 >>>>>>> 7c10413b016767ce62c5fec9c458becc810c35d9
+=======
+			textInput.setTextColor(getResources().getColor(R.color.black_light));
+			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
+>>>>>>> 785a79ea37b8528e744e37302c6395791546ccea
 =======
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
