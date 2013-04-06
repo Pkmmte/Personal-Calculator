@@ -11,6 +11,8 @@ import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -71,6 +73,8 @@ public class ActivityCalculator extends Activity
 	TextView textLock;
 	int Hours;
 	int Minutes;
+	CountDownTimer mCountDownTimer;
+	long mInitialTime;
 	
 	//String builder to build the equation
 	StringBuilder textString = new StringBuilder();
@@ -101,12 +105,63 @@ public class ActivityCalculator extends Activity
 		initializeUI();
 		initializeSigns();
 		
-		if(intent.hasExtra("Lockdown"))
+		if (intent.hasExtra("Lockdown"))
 		{
 			Hours = intent.getIntExtra("Hours", 0);
 			Minutes = intent.getIntExtra("Minutes", 0);
 			
-			if(intent.getBooleanExtra("Lockdown", false))
+			mInitialTime = DateUtils.HOUR_IN_MILLIS * Hours + DateUtils.MINUTE_IN_MILLIS * Minutes;
+			mCountDownTimer = new CountDownTimer(mInitialTime, 1000)
+			{
+				StringBuilder time = new StringBuilder();
+				
+				@Override
+				public void onFinish()
+				{
+					textLock.setText(DateUtils.formatElapsedTime(0));
+					// RESTORE SYSTEM HERE... later because I'm too lazy
+				}
+				
+				@Override
+				public void onTick(long millisUntilFinished)
+				{
+					time.setLength(0);
+					if (millisUntilFinished > DateUtils.HOUR_IN_MILLIS)
+					{
+						long count = millisUntilFinished / DateUtils.HOUR_IN_MILLIS;
+						if (count > 1)
+							time.append(count).append(" hours ");
+						else
+							time.append(count).append(" hour ");
+						
+						millisUntilFinished %= DateUtils.DAY_IN_MILLIS;
+					}
+					if (millisUntilFinished > DateUtils.MINUTE_IN_MILLIS)
+					{
+						long count = millisUntilFinished / DateUtils.MINUTE_IN_MILLIS % 60;
+						if (count > 1)
+							time.append(count).append(" minutes ");
+						else
+							time.append(count).append(" minutes ");
+						
+						millisUntilFinished %= DateUtils.MINUTE_IN_MILLIS;
+					}
+					if (millisUntilFinished > DateUtils.SECOND_IN_MILLIS)
+					{
+						long count = millisUntilFinished / DateUtils.SECOND_IN_MILLIS;
+						if (count > 1)
+							time.append(count).append(" seconds ");
+						else
+							time.append(count).append(" second ");
+						
+						millisUntilFinished %= DateUtils.SECOND_IN_MILLIS;
+					}
+					
+					textLock.setText(time.toString());
+				}
+			}.start();
+			
+			if (intent.getBooleanExtra("Lockdown", false))
 				lockdown();
 		}
 	}
@@ -163,34 +218,137 @@ public class ActivityCalculator extends Activity
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
+		// Override Back Button
 		if (keyCode == KeyEvent.KEYCODE_BACK)
 		{
-			if(intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
 			{
 				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
 			}
-			else
-				super.onBackPressed();
-			return true;
+		}
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_MENU)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_HOME)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
 		}
 		return super.onKeyDown(keyCode, event);
 	}
 	
-	/*@Override
-	public void onAttachedToWindow()
+	/*
+	 * @Override public void onAttachedToWindow() { // Override home button
+	 * this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+	 * super.onAttachedToWindow();
+	 * 
+	 * if(!(intent.hasExtra("Lockdown")) || !(intent.getBooleanExtra("Lockdown",
+	 * false))) { // If not in lockdown, act like normal moveTaskToBack(true); }
+	 * else Toast.makeText(ActivityCalculator.this,
+	 * "You can't go home during lockdown mode. Wait for the timer to end.",
+	 * Toast.LENGTH_LONG).show(); }
+	 */
+	
+	@Override
+	public boolean onKeyLongPress(int keyCode, KeyEvent event)
 	{
-		// Override home button
-		this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
-	    super.onAttachedToWindow();
-	    
-	    if(!(intent.hasExtra("Lockdown")) || !(intent.getBooleanExtra("Lockdown", false)))
+		// Override Back Button
+		if (keyCode == KeyEvent.KEYCODE_BACK)
 		{
-	    	// If not in lockdown, act like normal
-	    	moveTaskToBack(true);
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
 		}
-	    else
-	    	Toast.makeText(ActivityCalculator.this, "You can't go home during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
-	}*/
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_MENU)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_HOME)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		return super.onKeyLongPress(keyCode, event);
+	}
+	
+	@Override
+	public boolean onKeyMultiple(int keyCode, int repeatCount, KeyEvent event)
+	{
+		if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+		{
+			Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+			return true;
+		}
+		else
+			return super.onKeyMultiple(keyCode, repeatCount, event);
+	}
+	
+	@Override
+	public boolean onKeyShortcut(int keyCode, KeyEvent event)
+	{
+		if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+		{
+			Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+			return true;
+		}
+		else
+			return super.onKeyShortcut(keyCode, event);
+	}
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event)
+	{
+		// Override Back Button
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_MENU)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		// Override Menu Button
+		else if (keyCode == KeyEvent.KEYCODE_HOME)
+		{
+			if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+			{
+				Toast.makeText(ActivityCalculator.this, "You can't go back during lockdown mode. Wait for the timer to end.", Toast.LENGTH_LONG).show();
+				return true;
+			}
+		}
+		return super.onKeyUp(keyCode, event);
+	}
 	
 	// Initialize all UI objects and set theme if needed
 	public void initializeUI()
@@ -346,6 +504,7 @@ public class ActivityCalculator extends Activity
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
+<<<<<<< HEAD
 			textInput.setTextColor(getResources().getColor(R.color.black_light));
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 			
@@ -356,6 +515,8 @@ public class ActivityCalculator extends Activity
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 
 
+=======
+>>>>>>> 16248d4a08abae71d5172e3455512d6f2b2f2ae3
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
@@ -420,7 +581,7 @@ public class ActivityCalculator extends Activity
 	// I have to do this before setting content
 	public void firstLock()
 	{
-		if(intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
+		if (intent.hasExtra("Lockdown") && intent.getBooleanExtra("Lockdown", false))
 		{
 			// Hide the status bar
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -519,18 +680,19 @@ public class ActivityCalculator extends Activity
 				break;
 			case R.id.btnPlus:
 			{
-				if (!(textInput.getText().toString().isEmpty())){
 				if (!(textInput.getText().toString().isEmpty()))
 				{
-					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-					if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+					if (!(textInput.getText().toString().isEmpty()))
 					{
-						textString.deleteCharAt(textString.length() - 1);
-
-					}					
-
+						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
+						{
+							textString.deleteCharAt(textString.length() - 1);
+							
+						}
+						
 					}
-
+					
 					textString.append(plusSign);
 					textInput.setText(textString.toString());
 					
@@ -539,12 +701,13 @@ public class ActivityCalculator extends Activity
 			}
 			case R.id.btnMinus:
 			{
-
-				if (!(textInput.getText().toString().isEmpty())){
-
+				
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+					
 					if (!(textInput.getText().toString().isEmpty()))
 					{
-
+						
 						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
@@ -559,12 +722,13 @@ public class ActivityCalculator extends Activity
 			}
 			case R.id.btnMultiply:
 			{
-
-				if(!(textInput.getText().toString().isEmpty())){
-
+				
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+					
 					if (!(textInput.getText().toString().isEmpty()))
 					{
-
+						
 						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
@@ -578,12 +742,13 @@ public class ActivityCalculator extends Activity
 			}
 			case R.id.btnDivide:
 			{
-
-				if (!(textInput.getText().toString().isEmpty())){
-
+				
+				if (!(textInput.getText().toString().isEmpty()))
+				{
+					
 					if (!(textInput.getText().toString().isEmpty()))
 					{
-
+						
 						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
@@ -673,7 +838,7 @@ public class ActivityCalculator extends Activity
 				{
 					int subStart;
 					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1 && textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
-
+					
 					{
 						subStart = 0;
 					}
@@ -701,10 +866,10 @@ public class ActivityCalculator extends Activity
 		Symbols eSymbols = new Symbols();
 		
 		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
-
+		
 		if (isASign(lastChar))
 		{
-
+			
 			textString.deleteCharAt(textString.length() - 1);
 			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 			equation = textString.toString();
