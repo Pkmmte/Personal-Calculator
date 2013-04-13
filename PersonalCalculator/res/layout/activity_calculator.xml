@@ -25,7 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="Clear"
                 android:textColor="@color/black"
@@ -37,7 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="("
                 android:textColor="@color/black"
@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text=")"
                 android:textColor="@color/black"
@@ -61,7 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="÷"
                 android:textColor="@color/black"
@@ -72,8 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" >
-
-<<<<<<< HEAD
+            
     <RelativeLayout
         android:id="@+id/inputContainer"
         android:layout_width="match_parent"
@@ -106,7 +105,7 @@
             android:text=""
             android:textSize="@dimen/text_view" />
     </RelativeLayout>
-=======
+    
             <Button
                 android:id="@+id/btn7"
                 style="android:buttonBarStyle"
@@ -152,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="×"
                 android:textColor="@color/black"
@@ -210,7 +209,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="-"
                 android:textColor="@color/black"
@@ -268,7 +267,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="+"
                 android:textColor="@color/black"
@@ -327,7 +326,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_dark"
+                android:background="@drawable/button_holodark_selector_light"
                 android:onClick="buttonClick"
                 android:text="="
                 android:textColor="@color/black"
@@ -336,7 +335,6 @@
                 android:typeface="monospace" />
         </LinearLayout>
     </LinearLayout>
->>>>>>> 16248d4a08abae71d5172e3455512d6f2b2f2ae3
 
     <LinearLayout
         android:id="@+id/Part2"
@@ -345,7 +343,6 @@
         android:background="@color/white"
         android:orientation="vertical" >
 
-<<<<<<< HEAD
         <ImageButton
             android:id="@+id/btnExpand"
             android:layout_width="match_parent"
@@ -355,8 +352,6 @@
             android:src="@drawable/expand_light"
             android:text="v" />
 
-=======
->>>>>>> 16248d4a08abae71d5172e3455512d6f2b2f2ae3
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

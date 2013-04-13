@@ -380,8 +380,6 @@ public class ActivityCalculator extends Activity
 		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		textInput = (TextView) findViewById(R.id.Input);
 		inputContainer = (RelativeLayout) findViewById(R.id.inputContainer);
-		infoLockdown = (LinearLayout) findViewById(R.id.infoLockdown);
-		textLock = (TextView) findViewById(R.id.textLock);
 		
 		textInput.setText("");
 		
@@ -504,19 +502,6 @@ public class ActivityCalculator extends Activity
 			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
 			infoLockdown.setBackgroundColor(getResources().getColor(R.color.transparent));
 			
-<<<<<<< HEAD
-			textInput.setTextColor(getResources().getColor(R.color.black_light));
-			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
-			
-			textInput.setTextColor(getResources().getColor(R.color.black_light));
-			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
-			
-			textInput.setTextColor(getResources().getColor(R.color.black_light));
-			inputContainer.setBackgroundResource(getResources().getColor(R.color.transparent));
-
-
-=======
->>>>>>> 16248d4a08abae71d5172e3455512d6f2b2f2ae3
 			btnExpand.setBackgroundResource(R.drawable.border_selector);
 			btnDelete.setBackgroundResource(R.drawable.item_selector);
 			btnEqual.setBackgroundResource(R.drawable.item_selector);
