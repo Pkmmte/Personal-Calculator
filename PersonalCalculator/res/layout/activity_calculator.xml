@@ -7,341 +7,45 @@
     tools:ignore="NestedWeights" >
 
     <LinearLayout
-        android:id="@+id/Part1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:visibility="gone" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/btnClear"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="Clear"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnLeftP"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="("
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize" />
-
-            <Button
-                android:id="@+id/btnRightP"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text=")"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize" />
-
-            <Button
-                android:id="@+id/btnDivide"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="÷"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-            
-    <RelativeLayout
-        android:id="@+id/inputContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/transparent" >
-
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/button_holodark_selector_light"
-            android:onClick="buttonClick"
-            android:text="DEL"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/Input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"
-            android:layout_margin="10dp"
-            android:layout_toLeftOf="@+id/btnDelete"
-            android:ems="10"
-            android:gravity="right|center_vertical"
-            android:maxLines="1"
-            android:text=""
-            android:textSize="@dimen/text_view" />
-    </RelativeLayout>
-    
-            <Button
-                android:id="@+id/btn7"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn7"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="sans" />
-
-            <Button
-                android:id="@+id/btn8"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn8"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="serif" />
-
-            <Button
-                android:id="@+id/btn9"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn9"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnMultiply"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="×"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/btn4"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn4"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btn5"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn5"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btn6"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnMinus"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="-"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/btn1"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn1"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btn2"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn2"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btn3"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn3"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnPlus"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="+"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/btn0"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="@string/btn0"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnDot"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="."
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnSwitch"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="+/-"
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSwitch"
-                android:typeface="monospace" />
-
-            <Button
-                android:id="@+id/btnEqual"
-                style="android:buttonBarStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button_holodark_selector_light"
-                android:onClick="buttonClick"
-                android:text="="
-                android:textColor="@color/black"
-                android:textSize="@dimen/btnSize"
-                android:textStyle="bold"
-                android:typeface="monospace" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Part2"
+        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical" >
+        
+		<RelativeLayout
+		    android:id="@+id/inputContainer"
+		    android:layout_width="match_parent"
+		    android:layout_height="10dp"
+		    android:layout_weight="0.50"
+		    android:background="@color/transparent" >
+
+        	<Button
+        	    android:id="@+id/btnDelete"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:layout_alignParentBottom="true"
+        	    android:layout_alignParentRight="true"
+        	    android:background="@drawable/button_holodark_selector_light"
+        	    android:onClick="buttonClick"
+        	    android:text="DEL"
+        	    android:textColor="@color/black" />
+
+        	<TextView
+        	    android:id="@+id/Input"
+        	    android:layout_width="match_parent"
+        	    android:layout_height="match_parent"
+        	    android:layout_alignParentBottom="true"
+        	    android:layout_alignParentLeft="true"
+        	    android:layout_alignParentTop="true"
+        	    android:layout_margin="10dp"
+        	    android:layout_toLeftOf="@+id/btnDelete"
+        	    android:ems="10"
+        	    android:gravity="right|center_vertical"
+        	    android:maxLines="1"
+        	    android:textSize="@dimen/text_view" />
+
+    </RelativeLayout>
 
         <ImageButton
             android:id="@+id/btnExpand"
