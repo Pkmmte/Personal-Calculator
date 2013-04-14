@@ -618,6 +618,38 @@ public class ActivityCalculator extends Activity
 		
 	}
 	
+	public int lastCharIndex()
+	{
+		int index;
+		
+		if (textString.toString().lastIndexOf(plusSign) != -1)
+		{
+			index = textString.toString().lastIndexOf(plusSign);
+		}
+		else if (textString.toString().lastIndexOf(minusSign) != -1)
+		{
+			index = textString.toString().lastIndexOf(minusSign);
+		}
+		else if (textString.toString().lastIndexOf(multiplySign) != -1)
+		{
+			index = textString.toString().lastIndexOf(multiplySign);
+		}
+		else if (textString.toString().lastIndexOf(divideSign) != -1)
+		{
+			index = textString.toString().lastIndexOf(divideSign);
+		}
+		else if (textString.toString().lastIndexOf(leftParSign) != -1)
+		{
+			index = textString.toString().lastIndexOf(leftParSign);
+		}
+		else
+		{
+			index = 0;
+		}
+		
+		return index;
+	}
+	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
 	{
@@ -768,7 +800,7 @@ public class ActivityCalculator extends Activity
 			}
 			case R.id.btnRightP:
 			{
-				if ((textInput.getText().toString().contains("(")))
+				if ((textString.toString().contains("(")))
 				{
 					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
 					if (!(lastChar.toString().equals("(")))
@@ -814,24 +846,26 @@ public class ActivityCalculator extends Activity
 			}
 				
 				break;
-			case R.id.btnSwitch: // Code for the additive inverse of a number goes
+			case R.id.btnSwitch:
+			{
+				if (lastCharIndex() != 0)
+				{
+					// Code for the additive inverse of a number goes
+				}
+			}
 									// here.;
 				break;
 			case R.id.btnDot:
 			{
 				if (!textString.toString().isEmpty())
 				{
-					int subStart;
-					if (textString.toString().lastIndexOf("+") == -1 && textString.toString().lastIndexOf("-") == -1 && textString.toString().lastIndexOf("x") == -1 && textString.toString().lastIndexOf("/") == -1)
-					
-					{
-						subStart = 0;
-					}
-					if (!textInput.getText().toString().contains("."))
+					int subStart = lastCharIndex();
+					String subString = textString.toString().substring(subStart);
+					if (!subString.contains("."))
 					{
 						textString.append(".");
 						textInput.setText(textString.toString());
-					}
+					}	
 					break;
 				}
 				else
@@ -843,9 +877,7 @@ public class ActivityCalculator extends Activity
 		}
 	}
 	
-	// The method will take the text view "Input", analyze it, and construct an
-	// equation that the machine will solve;
-	// The resulting solution will be set in the text view afterwards.
+	
 	public String solve(String equation) throws SyntaxException
 	{
 		Symbols eSymbols = new Symbols();
@@ -872,6 +904,5 @@ public class ActivityCalculator extends Activity
 		
 		String stringSolution = "" + solution;
 		return stringSolution;
-		// Code for solve goes here
 	}
 }
