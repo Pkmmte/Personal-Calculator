@@ -383,7 +383,7 @@ public class ActivityCalculator extends Activity
 		
 		textInput.setText("");
 		
-		setCalculatorTheme(selectedTheme);
+		//setCalculatorTheme(selectedTheme);
 	}
 
 	
