@@ -1,9 +1,5 @@
 package com.pk.personalcalculator;
 
-import org.javia.arity.Complex;
-import org.javia.arity.Symbols;
-import org.javia.arity.SyntaxException;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -28,6 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.javia.arity.Complex;
+import org.javia.arity.Symbols;
+import org.javia.arity.SyntaxException;
 
 public class ActivityCalculator extends Activity
 {
@@ -592,63 +592,6 @@ public class ActivityCalculator extends Activity
 		handleParams.gravity = Gravity.TOP;
 		getWindow().addContentView(disableStatusBar, handleParams);
 	}
-
-	
-	// Obtains the string resources for use with buttonClick
-	public void initializeSigns()
-	{
-		plusSign = getResources().getString(R.string.plus);
-		minusSign = getResources().getString(R.string.minus);
-		multiplySign = getResources().getString(R.string.multiply);
-		divideSign = getResources().getString(R.string.divide);
-		leftParSign = getResources().getString(R.string.leftPar);
-		rightParSign = getResources().getString(R.string.rightPar);
-	}
-	
-	public boolean isASign(Character c)
-	{
-		if (c.toString().equals(plusSign) || c.toString().equals(minusSign) || c.toString().equals(multiplySign) || c.toString().equals(divideSign))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		
-	}
-	
-	public int lastCharIndex()
-	{
-		int index;
-		
-		if (textString.toString().lastIndexOf(plusSign) != -1)
-		{
-			index = textString.toString().lastIndexOf(plusSign);
-		}
-		else if (textString.toString().lastIndexOf(minusSign) != -1)
-		{
-			index = textString.toString().lastIndexOf(minusSign);
-		}
-		else if (textString.toString().lastIndexOf(multiplySign) != -1)
-		{
-			index = textString.toString().lastIndexOf(multiplySign);
-		}
-		else if (textString.toString().lastIndexOf(divideSign) != -1)
-		{
-			index = textString.toString().lastIndexOf(divideSign);
-		}
-		else if (textString.toString().lastIndexOf(leftParSign) != -1)
-		{
-			index = textString.toString().lastIndexOf(leftParSign);
-		}
-		else
-		{
-			index = 0;
-		}
-		
-		return index;
-	}
 	
 	// This method will determine what will happen when a button is pressed.
 	public void buttonClick(View v)
@@ -701,7 +644,7 @@ public class ActivityCalculator extends Activity
 				{
 					if (!(textInput.getText().toString().isEmpty()))
 					{
-						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						Character lastChar = textString.charAt(textInput.length() - 1);
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
 							textString.deleteCharAt(textString.length() - 1);
@@ -725,7 +668,7 @@ public class ActivityCalculator extends Activity
 					if (!(textInput.getText().toString().isEmpty()))
 					{
 						
-						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						Character lastChar = textString.charAt(textInput.length() - 1);
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
 							textString.deleteCharAt(textString.length() - 1);
@@ -746,7 +689,7 @@ public class ActivityCalculator extends Activity
 					if (!(textInput.getText().toString().isEmpty()))
 					{
 						
-						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						Character lastChar = textString.charAt(textInput.length() - 1);
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
 							textString.deleteCharAt(textString.length() - 1);
@@ -766,7 +709,7 @@ public class ActivityCalculator extends Activity
 					if (!(textInput.getText().toString().isEmpty()))
 					{
 						
-						Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+						Character lastChar = textString.charAt(textInput.length() - 1);
 						if (lastChar.toString().equals(leftParSign) || isASign(lastChar))
 						{
 							textString.deleteCharAt(textString.length() - 1);
@@ -783,7 +726,7 @@ public class ActivityCalculator extends Activity
 				Character lastChar = null;
 				if (!(textString.toString().isEmpty()))
 				{
-					lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					lastChar = textString.charAt(textInput.length() - 1);
 					
 					if (isASign(lastChar))
 					{
@@ -802,7 +745,7 @@ public class ActivityCalculator extends Activity
 			{
 				if ((textString.toString().contains("(")))
 				{
-					Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+					Character lastChar = textString.charAt(textInput.length() - 1);
 					if (!(lastChar.toString().equals("(")))
 					{
 						if (isASign(lastChar))
@@ -848,12 +791,22 @@ public class ActivityCalculator extends Activity
 				break;
 			case R.id.btnSwitch:
 			{
-				if (lastCharIndex() != 0)
+				if (!textString.toString().isEmpty())
 				{
-					// Code for the additive inverse of a number goes
-				}
-			}
-									// here.;
+                    Character lastChar = textString.charAt(textInput.length() - 1);
+                    if (isASign(lastChar) && !lastChar.equals(minusSign))
+                    {
+                        textString.append(minusSign);
+                        textInput.setText(textString.toString());
+                    }
+                }
+                else
+                {
+                    textString.append(minusSign);
+                    textInput.setText(textString.toString());
+                }
+
+            }
 				break;
 			case R.id.btnDot:
 			{
@@ -876,19 +829,71 @@ public class ActivityCalculator extends Activity
 			}
 		}
 	}
+
+    // Obtains the string resources for use with buttonClick
+    private void initializeSigns()
+    {
+        plusSign = getResources().getString(R.string.plus);
+        minusSign = getResources().getString(R.string.minus);
+        multiplySign = getResources().getString(R.string.multiply);
+        divideSign = getResources().getString(R.string.divide);
+        leftParSign = getResources().getString(R.string.leftPar);
+        rightParSign = getResources().getString(R.string.rightPar);
+    }
+
+    private boolean isASign(Character c)
+    {
+        if (c.toString().equals(plusSign)) return true;
+        if (c.toString().equals(minusSign)) return true;
+        if (c.toString().equals(multiplySign)) return true;
+        if (c.toString().equals(divideSign)) return true;
+        return false;
+
+    }
+
+    private int lastCharIndex()
+    {
+        int index;
+
+        if (textString.toString().lastIndexOf(plusSign) != -1)
+        {
+            index = textString.toString().lastIndexOf(plusSign);
+        }
+        else if (textString.toString().lastIndexOf(minusSign) != -1)
+        {
+            index = textString.toString().lastIndexOf(minusSign);
+        }
+        else if (textString.toString().lastIndexOf(multiplySign) != -1)
+        {
+            index = textString.toString().lastIndexOf(multiplySign);
+        }
+        else if (textString.toString().lastIndexOf(divideSign) != -1)
+        {
+            index = textString.toString().lastIndexOf(divideSign);
+        }
+        else if (textString.toString().lastIndexOf(leftParSign) != -1)
+        {
+            index = textString.toString().lastIndexOf(leftParSign);
+        }
+        else
+        {
+            index = 0;
+        }
+
+        return index;
+    }
 	
-	
-	public String solve(String equation) throws SyntaxException
+	private String solve(String equation) throws SyntaxException
 	{
 		Symbols eSymbols = new Symbols();
 		
-		Character lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+		Character lastChar = textString.charAt(textInput.length() - 1);
 		
 		if (isASign(lastChar))
 		{
 			
 			textString.deleteCharAt(textString.length() - 1);
-			lastChar = Character.valueOf(textString.charAt(textInput.length() - 1));
+			lastChar = textString.charAt(textInput.length() - 1);
 			equation = textString.toString();
 		}
 		
@@ -901,8 +906,7 @@ public class ActivityCalculator extends Activity
 		Complex value = eSymbols.evalComplex(equation);
 		
 		double solution = value.re;
-		
-		String stringSolution = "" + solution;
-		return stringSolution;
+
+        return "" + solution;
 	}
 }
