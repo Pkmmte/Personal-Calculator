@@ -777,12 +777,20 @@ public class ActivityCalculator extends Activity
 				{
 					solutionText = solve(textString.toString()); // Has some function at the moment;
 					textString.setLength(0);
-					textString.append(solutionText);
+					
+                    if (solutionText.equals("Infinity"))
+                    {
+                        textString.append("Error: invalid operation");
+                    }
+                    else
+                    {
+					    textString.append(solutionText);
+                    }
 				}
 				catch (SyntaxException e)
 				{
 					textString.setLength(0);
-					textString.append("Syntax Error: try again.");
+					textString.append("Error: invalid syntax.");
 				}
 				
 				textInput.setText(textString.toString());
@@ -891,9 +899,7 @@ public class ActivityCalculator extends Activity
 		
 		if (isASign(lastChar))
 		{
-			
 			textString.deleteCharAt(textString.length() - 1);
-			lastChar = textString.charAt(textInput.length() - 1);
 			equation = textString.toString();
 		}
 		
@@ -905,8 +911,17 @@ public class ActivityCalculator extends Activity
 		
 		Complex value = eSymbols.evalComplex(equation);
 		
-		double solution = value.re;
+		double decSolution = value.re;
 
-        return "" + solution;
+        int intSolution = (int) decSolution;
+
+        if(intSolution == decSolution)
+        {
+            return "" + intSolution;
+        }
+        else
+        {
+            return "" + decSolution;
+        }
 	}
 }
